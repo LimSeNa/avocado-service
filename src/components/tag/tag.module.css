@@ -1,0 +1,78 @@
+.tagBanner {
+    width: 100vw;
+    height: 18rem;
+    background-color: #f9f9f9;
+}
+
+.tagSubInfo {
+    margin: 0;
+    padding: 5rem 0 0 200px;
+    color: #434842;
+}
+
+.tagInfo {
+    margin: 0;
+    padding-left: 200px;
+    color: #434842;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.highlight {
+    box-shadow: inset 0 -18px 0 #29E23D;
+    line-height: inherit;
+}
+
+.tagBox {
+    width: calc(100vw - 400px);
+    margin: 2rem auto 0 auto;
+}
+
+.tagSpan {
+    display: inline-block;
+    padding: 0 1rem;
+    margin: 0.6rem 0.1rem;
+}
+
+.tagInput {
+    display: none;
+}
+
+.tagButton {
+    all: unset;
+}
+
+.tagLabel, .tagButton {
+    display: inline-block;
+    border: 1px solid #7C827B;
+    border-radius: 5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tagButton {
+    background-color: #F0F0F0;
+}
+
+.tagTrue {
+    display: inline-block;
+    border: 1px solid #7C827B;
+    border-radius: 5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: #DDF8D7;
+    display: flex;
+    align-items: center;
+}
+
+.tagLabel:hover, .tagButton:hover {
+    background-color: #F0F0F0;
+}
+
+.tagClose {
+    text-align: center;
+    margin-left: 0.4rem;
+}

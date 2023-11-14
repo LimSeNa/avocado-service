@@ -1,0 +1,80 @@
+section {
+    display: flex;
+    align-items: center;
+    height: 910px;
+    padding: 0 130px;
+    justify-content: space-between;
+}
+
+.sectionOne {
+    background-color: #FFF5F5;
+}
+
+.sectionTwo, .sectionFour {
+    background-color: #f9f9f9;
+}
+
+.sectionThree {
+    background-color: #C2D2E7;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+ul {
+    margin: 30px 0;
+}
+
+li {
+    font-size: 30px;
+    color: #7C827B;
+    padding-bottom: 20px;
+}
+
+.sectionThree ul, .sectionFour ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.imgBox {
+    width: 650px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+.img {
+    width: 100%;
+}
+
+.sectionImg {
+    width: 70%;
+}
+
+.sectionSubImg {
+    width: 30%;
+    height: 300px;
+    /*transform: rotate(-20deg);*/
+}
+
+.linkButton {
+    display: flex;
+    align-items: center;
+    line-height: 56px;
+    width: fit-content;
+    height: 56px;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    background-color: #29E23D;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.linkButton:hover {
+    background-color: #00CE27;
+}

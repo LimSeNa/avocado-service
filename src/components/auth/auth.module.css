@@ -1,0 +1,164 @@
+.auth {
+    /* 내부 내용 중앙 정렬 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.authBox {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #7C827B;
+}
+
+h2 {
+    margin: 0 0 3rem 0;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.authElement {
+    margin: 0 0 3rem 0;
+}
+
+.emailElement {
+    margin: 0;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+}
+
+.info, .error {
+    margin: 0 0 0.5rem 0;
+    width: 500px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #7C827B;
+    text-align: left;
+}
+
+input, button {
+    margin: 0 0 1rem 0;
+    width: 500px;
+    height: 56px;
+    box-sizing: border-box;
+    border: 1px solid #7C827B;
+    border-radius: 0.4rem;
+    padding: 0.75rem;
+    font-size: 1.35rem;
+}
+
+.error {
+    margin: 0;
+    color: #EF616B;
+}
+
+button {
+    margin: 0 0 1rem 0;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    background-color: #29E23D;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00CE27;
+}
+
+p {
+    margin: 1rem 0 2rem 0;
+    font-size: 1.25rem;
+    color: #7C827B;
+    text-align: center;
+}
+
+p a {
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+p a:hover {
+    color: #7C827B;
+}
+
+.linkButton {
+    margin-bottom: 7rem;
+    width: 500px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 24px;
+    background-color: #FFFAE0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.linkButton div {
+    display: flex;
+    align-items: center;
+}
+
+.linkDiv {
+    margin-top: 0.5rem;
+    color: #7C827B;
+}
+
+.emailBox {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.emailButton {
+    margin: 0;
+    border: 1px solid #7C827B;
+    background-color: #F7F8FA;
+    color: #C2C8CC;
+}
+
+.emailButton:hover {
+    background-color: #F0F0F0;
+}
+
+.emailInputBox {
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+.emailInputBox input {
+    margin: 0;
+    width: 400px;
+    box-sizing: border-box;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.emailInputBox button {
+    margin: 0;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid #7C827B;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #F7F8FA;
+    color: #C2C8CC;
+}
+
+.emailInputBox button:hover {
+    background-color: #F0F0F0;
+}

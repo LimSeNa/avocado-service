@@ -1,0 +1,78 @@
+.searchModalBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(191, 187, 187, 0.35);
+}
+
+.searchModalView {
+    width: 600px;
+    height: 300px;
+    border: none;
+    border-radius: 0.6rem;
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.searchModalClose {
+    all: unset;
+    position: absolute;
+    top: 20px; /* 원하는 상단 여백 조정 */
+    right: 20px; /* 원하는 오른쪽 여백 조정 */
+    font-size: 30px;
+}
+
+.searchModalClose:hover {
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.searchModalContent {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchModalIconBox {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #29E23D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchModalIcon {
+    color: #fff;
+    font-size: 3.25rem;
+}
+
+.searchModalText {
+    margin-top: 1.5rem;
+    font-size: 1.85rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchModalMessage {
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: #29E23D;
+}
+
+.searchModalP {
+    font-size: 1.85rem;
+    color: #000;
+}
