@@ -1,11 +1,11 @@
-import styles from "./main.module.css";
-import {FaArrowAltCircleRight} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import MainOneImg from "../../assets/main-section-one.png";
 import MainOneSubImg from "../../assets/main-section-one-sub.png";
 import MainTwoImg from "../../assets/main-section-two.png";
 import MainTreeImg from "../../assets/main-section-three.png";
 import MainFourImg from "../../assets/main-section-four.png";
+import {FaArrowAltCircleRight} from "react-icons/fa";
+import styles from "./main.module.css";
 
 const MainPage = () => {
     return (
@@ -68,7 +68,7 @@ const MainPage = () => {
                     <ul>
                         <li>건강 ・ 질병 ・ 의약품 등에 관한 정보를 매일 업데이트하여<br/>사용자들에게 제공해요.</li>
                     </ul>
-                    <Link to='/health-infons' className={styles.linkButton}>
+                    <Link to='/health-infos' className={styles.linkButton}>
                         건강 정보 보러 가기&nbsp;
                         <FaArrowAltCircleRight/>
                     </Link>

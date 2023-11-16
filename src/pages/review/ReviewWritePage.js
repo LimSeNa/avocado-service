@@ -1,5 +1,5 @@
-import ReviewEditorContainer from "../containers/review/ReviewEditorContainer";
-import ReviewButtonContainer from "../containers/review/ReviewButtonContainer";
+import ReviewEditorContainer from "../../containers/review/ReviewEditorContainer";
+import ReviewButtonContainer from "../../containers/review/ReviewButtonContainer";
 
 const ReviewWritePage = () => {
     return (

@@ -1,12 +1,14 @@
-import BoardEditPage from "../pages/BoardEditPage";
 import {Route, Routes} from "react-router-dom";
-import BoardPage from "../pages/BoardPage";
+import BoardListPage from "../pages/board/BoardListPage";
+import BoardDetailPage from "../pages/board/BoardDetailPage";
+import BoardWritePage from "../pages/board/BoardWritePage";
 
 const BoardRoutes = () => {
     return (
         <Routes>
-            <Route path="" element={<BoardPage/>}/>
-            <Route path="/edit" element={<BoardEditPage/>}/>
+            <Route path="" element={<BoardListPage/>}/>
+            <Route path=":id" element={<BoardDetailPage/>}/>
+            <Route path="write" element={<BoardWritePage/>}/>
         </Routes>
     );
 };

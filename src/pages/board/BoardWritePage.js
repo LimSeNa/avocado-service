@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import EditorButtonContainer from "../containers/board/EditorButtonContainer";
-import EditorContainer from "../containers/board/EditorContainer";
+import EditorButtonContainer from "../../containers/board/EditorButtonContainer";
+import EditorContainer from "../../containers/board/EditorContainer";
 
 const Main = styled.div`
   padding-top: 150px;
@@ -8,7 +8,7 @@ const Main = styled.div`
   color: black;
 `
 
-const BoardEditPage = () => {
+const BoardWritePage = () => {
     return (
         <Main>
             <EditorContainer/>
@@ -17,4 +17,4 @@ const BoardEditPage = () => {
     );
 };
 
-export default BoardEditPage;
+export default BoardWritePage;

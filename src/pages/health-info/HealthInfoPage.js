@@ -8,11 +8,9 @@ const Main = styled.div`
 
 const HealthInfoPage = () => {
     return (
-        <>
-            <Main>
-                Avocado 건강정보 페이지입니다.
-            </Main>
-        </>
+        <Main>
+            Avocado 건강정보 페이지입니다.
+        </Main>
     );
 };
 
