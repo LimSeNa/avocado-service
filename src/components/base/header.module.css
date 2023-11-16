@@ -33,6 +33,10 @@
     font-size: 1.35rem;
 }
 
+.name {
+    color: #29E23D;
+}
+
 .nav a:hover {
     color:  #7C827B;
 }
