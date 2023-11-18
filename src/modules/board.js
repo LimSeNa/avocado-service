@@ -1,59 +1,50 @@
 import {createAction, handleActions} from "redux-actions";
-import createRequestSaga, {createRequestActionTypes} from '../lib/createRequestSaga';
-import * as postsAPI from '../lib/api/boards';
 import {takeLatest} from 'redux-saga/effects';
+import createRequestSaga, {createRequestActionTypes} from '../lib/createRequestSaga';
+import * as boardAPI from '../lib/api/board';
 
 const INITIALIZE = 'board/INITIALIZE';
 const CHANGE_FIELD = 'board/CHANGE_FIELD';
-const [
-    BOARD_POST,
-    BOARD_POST_SUCCESS,
-    BOARD_POST_FAILURE,
-] = createRequestActionTypes('board/BOARD_POST');
+const [WRITE_BOARD, WRITE_BOARD_SUCCESS, WRITE_BOARD_FAILURE] = createRequestActionTypes('board/WRITE_BOARD');
 
 export const initialize = createAction(INITIALIZE);
-export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
-    key,
-    value,
-}));
-export const boardPost = createAction(BOARD_POST, ({ title, body }) => ({
-    title,
-    body,
-}));
+export const changeField = createAction(
+    CHANGE_FIELD,
+    ({key, value}) => ({key, value})
+);
+export const writeBoard = createAction(
+    WRITE_BOARD,
+    ({memberId, title, body, dept}) => ({memberId, title, body, dept})
+);
 
-const boardPostSaga = createRequestSaga(BOARD_POST, postsAPI.boardPost);
+const writeBoardSaga = createRequestSaga(WRITE_BOARD, boardAPI.writeBoard);
 export function* boardSaga() {
-    yield takeLatest(BOARD_POST, boardPostSaga);
+    yield takeLatest(WRITE_BOARD, writeBoardSaga);
 }
 
 const initialState = {
+    memberId: JSON.parse(localStorage.getItem('member')) ? JSON.parse(localStorage.getItem('member')).memberId : '',
     title: '',
     body: '',
-    post: null,
-    postError: null,
+    dept: '',
+    write: null,
+    writeError: null,
 };
 
 const board = handleActions(
     {
         [INITIALIZE]: state => initialState,
-        [CHANGE_FIELD]: (state, { payload: {key, value} }) => ({
+        [CHANGE_FIELD]: (state, {payload: {key, value}}) => ({
             ...state,
             [key]: value,
         }),
-        [BOARD_POST]: state => ({
+        [WRITE_BOARD_SUCCESS]: (state, {payload: write}) => ({
             ...state,
-            post: null,
-            postError: null,
+            write,
         }),
-        // 포스트 작성 성공
-        [BOARD_POST_SUCCESS]: (state, { payload: post }) => ({
+        [WRITE_BOARD_FAILURE]: (state, {payload: writeError}) => ({
             ...state,
-            post,
-        }),
-        // 포스트 작성 실패
-        [BOARD_POST_FAILURE]: (state, { payload: postError }) => ({
-            ...state,
-            postError,
+            writeError,
         }),
     },
     initialState,

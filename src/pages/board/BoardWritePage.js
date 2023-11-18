@@ -1,19 +1,12 @@
-import styled from "styled-components";
-import EditorButtonContainer from "../../containers/board/EditorButtonContainer";
-import EditorContainer from "../../containers/board/EditorContainer";
-
-const Main = styled.div`
-  padding-top: 150px;
-  text-align: center;
-  color: black;
-`
+import BoardEditorContainer from "../../containers/board/BoardEditorContainer";
+import BoardEditorButtonContainer from "../../containers/board/BoardEditorButtonContainer";
 
 const BoardWritePage = () => {
     return (
-        <Main>
-            <EditorContainer/>
-            <EditorButtonContainer/>
-        </Main>
+        <>
+            <BoardEditorContainer/>
+            <BoardEditorButtonContainer/>
+        </>
     );
 };
 

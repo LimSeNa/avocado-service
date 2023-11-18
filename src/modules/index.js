@@ -1,24 +1,21 @@
 import {combineReducers} from "redux";
-import auth, {authSaga} from "./auth";
-import boardEdit, {boardSaga} from "./board";
-import loading from "./loading";
-import boardList from "./boardList";
 import {all} from "redux-saga/effects";
+import loading from "./loading";
+import auth, {authSaga} from "./auth";
 import search, {searchSaga} from "./search";
 import review, {reviewSaga} from "./review";
-import board from "./board";
+import board, {boardSaga} from "./board";
 
 const rootReducer = combineReducers({
     loading,
     auth,
-    board,
-    boardList,
     search,
     review,
+    board,
 });
 
 export function* rootSaga() {
-    yield all([authSaga(), boardSaga(), searchSaga(), reviewSaga()]);
+    yield all([authSaga(), searchSaga(), reviewSaga(), boardSaga()]);
 }
 
 export default rootReducer;
