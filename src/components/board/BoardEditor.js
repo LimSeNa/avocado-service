@@ -79,7 +79,7 @@ const deptMap = [
     {
         id: 15,
         deptName: '한의원',
-        deptValue: 'ORIENTAL MEDICAL'
+        deptValue: 'ORIENTAL_MEDICAL'
     },
     {
         id: 16,
