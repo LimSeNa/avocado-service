@@ -1,23 +1,9 @@
-import styled from "styled-components";
 import {useEffect, useRef, useState} from "react";
-import {IoMdArrowDropdownCircle, IoMdArrowDropupCircle} from "react-icons/io";
+import {RiArrowDownSLine, RiArrowUpSLine} from "react-icons/ri";
 import Quill from "quill";
 import 'quill/dist/quill.bubble.css';
 import DeptDropDown from "./DeptDropDown";
-
-const QuillWrapper = styled.div`
-  .ql-editor {
-    padding: 0;
-    min-height: 320px;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    width: 70%;
-  }
-
-  .ql-editor.ql-blank::before {
-    left: 0px;
-  }
-`;
+import styles from "./board-editor.module.css";
 
 const deptMap = [
     {
@@ -95,6 +81,11 @@ const deptMap = [
         deptName: '한의원',
         deptValue: 'ORIENTAL MEDICAL'
     },
+    {
+        id: 16,
+        deptName: '기타',
+        deptValue: 'ETC'
+    },
 ];
 
 const BoardEditor = ({title, body, dept, handleChange}) => {
@@ -108,7 +99,7 @@ const BoardEditor = ({title, body, dept, handleChange}) => {
         }, 200);
     };
 
-    const handleDropDownView = dept =>  {
+    const handleDropDownView = dept => {
         const selectedDept = deptMap.find(deptItem => dept === deptItem.deptValue);
         return selectedDept.deptName;
     };
@@ -124,6 +115,8 @@ const BoardEditor = ({title, body, dept, handleChange}) => {
                     toolbar: [
                         [{header: '1'}, {header: '2'}],
                         ['bold', 'italic', 'underline', 'strike'],
+                        [{'align': []}],
+                        [{'color': []}, {'size': ['small', false, 'large', 'huge']}],
                         [{list: 'ordered'}, {list: 'bullet'}],
                         ['blockquote', 'code-block', 'link', 'image'],
                     ],
@@ -132,10 +125,8 @@ const BoardEditor = ({title, body, dept, handleChange}) => {
         );
 
         const quill = quillInstance.current;
-        quill.on('text-change', (delta, oldDelta, source) => {
-            if (source === 'user') {
-                handleChange({key: 'body', value: quill.root.innerHTML});
-            }
+        quill.on('text-change', () => {
+            handleChange({key: 'body', value: quill.root.innerHTML});
         });
     }, [handleChange]);
 
@@ -144,22 +135,28 @@ const BoardEditor = ({title, body, dept, handleChange}) => {
     };
 
     return (
-        <div>
-            <div>
+        <div className={styles.boxBoardEditor}>
+            <div className={styles.boxSubInfo}>
                 <div onBlur={handleBlur}>
-                    <button onClick={handleDropDown}>
-                        {dept ? handleDropDownView(dept) : '진료과'} {isOpenDropDown ? <IoMdArrowDropupCircle/> : <IoMdArrowDropdownCircle/>}
+                    <button className={styles.btnDropDown} onClick={handleDropDown}>
+                        <span>
+                            {dept ? handleDropDownView(dept) : '진료과'}
+                        </span>
+                        <span>
+                            {isOpenDropDown ? <RiArrowUpSLine/> : <RiArrowDownSLine/>}
+                        </span>
                     </button>
                     {isOpenDropDown && <DeptDropDown deptMap={deptMap} handleChange={handleChange}/>}
                 </div>
-                <input name='title'
+                <input className={styles.inputBoardTitle}
+                       name='title'
                        value={title}
-                       placeholder='제목을 입력하세요.'
+                       placeholder='제목을 입력해 주세요.'
                        onChange={handleTitle}
                 />
             </div>
-            <div>
-                <div ref={quillElement}/>
+            <div className={styles.quillWrapper}>
+                <div className={styles.inputBoardBody} ref={quillElement}/>
             </div>
         </div>
     );

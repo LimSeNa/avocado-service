@@ -1,0 +1,78 @@
+.boxBoardEditor {
+    width: calc(100vw - 400px);
+    margin: 0 auto;
+    padding: 100px;
+    padding-bottom: 60px;
+}
+
+.boxSubInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.btnDropDown {
+    width: 150px;
+    height: 60px;
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.58rem;
+    font-weight: normal;
+    padding: 16px;
+    position: relative;
+}
+
+.btnDropDown span + span {
+    margin-left: 0.3rem;
+}
+
+.inputBoardTitle {
+    width: 90%;
+    height: 60px;
+    box-sizing: border-box;
+    border: 1px solid #7C827B;
+    border-radius: 0.4rem;
+    margin-left: 1rem;
+    font-size: 1.58rem;
+    font-weight: normal;
+}
+
+.inputBoardTitle:focus {
+    outline: none;
+}
+
+.quillWrapper {
+    
+}
+
+.inputBoardBody {
+    height: 500px;
+    border: 1px solid #7C827B;
+    border-radius: 0.4rem;
+    padding: 16px;
+    margin: 1.2rem 0 0 0;
+    overflow: scroll;
+    font-size: 1.58rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: left;
+}
+
+.btnWriteBoard {
+    width: 210px;
+    height: 60px;
+    background-color: #ffffff;
+    border: 1px solid #29E23D;
+    border-radius: 0.4rem;
+    color: #29E23D;
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: block;
+    margin: 0 auto;
+}
+
+.btnWriteBoard:hover {
+    background-color: #DDF8D7;
+}

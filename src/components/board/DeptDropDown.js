@@ -1,3 +1,5 @@
+import styles from "./drop-down.module.css";
+
 const DeptDropDown = ({deptMap, handleChange}) => {
     const handelDept = e => {
         const {name, value} = e.target;
@@ -5,19 +7,20 @@ const DeptDropDown = ({deptMap, handleChange}) => {
     };
 
     return (
-        <div>
+        <div className={styles.boxDeptMap}>
             {deptMap.map(deptItem => (
-                <span key={deptItem.id}>
-                    <input type='checkbox'
+                <div className={styles.boxDeptItem} key={deptItem.id}>
+                    <input className={styles.inputDeptItem}
+                           type='checkbox'
                            id={deptItem.id}
                            name='dept'
                            value={deptItem.deptValue}
                            onChange={handelDept}
                     />
-                    <label htmlFor={deptItem.id}>
+                    <label className={styles.labelDeptItem} htmlFor={deptItem.id}>
                         {deptItem.deptName}
                     </label>
-                </span>
+                </div>
             ))}
         </div>
     );

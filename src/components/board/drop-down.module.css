@@ -1,0 +1,37 @@
+.boxDeptMap {
+    width: 150px;
+    height: 280px;
+    box-sizing: border-box;
+    border: 1px solid rgba(63, 71, 77, 0.2);
+    border-radius: 0.4rem;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 4px 10px 0px;
+    background-color: #ffffff;
+    padding: 16px;
+    overflow: scroll;
+    position: absolute;
+    z-index: 10;
+}
+
+.boxDeptItem {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.boxDeptItem:hover {
+    background-color: #F3F3F3;
+    transition: background-color 0.2s ease 0s;
+}
+
+.inputDeptItem {
+    display: none;
+}
+
+.labelDeptItem {
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
