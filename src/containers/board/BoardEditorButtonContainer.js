@@ -7,13 +7,13 @@ import BoardEditorButton from "../../components/board/BoardEditorButton";
 const BoardEditorButtonContainer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {memberId, title, body, dept, write, writeError} = useSelector(({board}) => ({
+    const {memberId, title, body, dept, board, boardError} = useSelector(({board}) => ({
         memberId: board.memberId,
         title: board.title,
         body: board.body,
         dept: board.dept,
-        write: board.write,
-        writeError: board.writeError,
+        board: board.board,
+        boardError: board.boardError,
     }));
 
     const handleSubmit = () => {
@@ -27,9 +27,9 @@ const BoardEditorButtonContainer = () => {
     };
 
     useEffect(() => {
-        if (write) navigate('/boards');
-        if (writeError) alert('게시글 작성 실패!');
-    }, [write, writeError, navigate]);
+        if (board) navigate('/boards');
+        if (boardError) alert('게시글 작성 실패!');
+    }, [board, boardError, navigate]);
 
     return (
         <BoardEditorButton handleSubmit={handleSubmit}/>

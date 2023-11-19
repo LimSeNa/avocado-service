@@ -6,6 +6,7 @@ import * as boardAPI from '../lib/api/board';
 const INITIALIZE = 'board/INITIALIZE';
 const CHANGE_FIELD = 'board/CHANGE_FIELD';
 const [WRITE_BOARD, WRITE_BOARD_SUCCESS, WRITE_BOARD_FAILURE] = createRequestActionTypes('board/WRITE_BOARD');
+const [READ_BOARD_LIST, READ_BOARD_LIST_SUCCESS, READ_BOARD_LIST_FAILURE] = createRequestActionTypes('board/READ_BOARD_LIST');
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(
@@ -16,10 +17,13 @@ export const writeBoard = createAction(
     WRITE_BOARD,
     ({memberId, title, body, dept}) => ({memberId, title, body, dept})
 );
+export const readBoardList = createAction(READ_BOARD_LIST);
 
 const writeBoardSaga = createRequestSaga(WRITE_BOARD, boardAPI.writeBoard);
+const readBoardListSaga = createRequestSaga(READ_BOARD_LIST, boardAPI.readBoardList);
 export function* boardSaga() {
     yield takeLatest(WRITE_BOARD, writeBoardSaga);
+    yield takeLatest(READ_BOARD_LIST, readBoardListSaga);
 }
 
 const initialState = {
@@ -27,8 +31,8 @@ const initialState = {
     title: '',
     body: '',
     dept: '',
-    write: null,
-    writeError: null,
+    board: null,
+    boardError: null,
 };
 
 const board = handleActions(
@@ -38,13 +42,21 @@ const board = handleActions(
             ...state,
             [key]: value,
         }),
-        [WRITE_BOARD_SUCCESS]: (state, {payload: write}) => ({
+        [WRITE_BOARD_SUCCESS]: (state, {payload: board}) => ({
             ...state,
-            write,
+            board,
         }),
-        [WRITE_BOARD_FAILURE]: (state, {payload: writeError}) => ({
+        [WRITE_BOARD_FAILURE]: (state, {payload: boardError}) => ({
             ...state,
-            writeError,
+            boardError,
+        }),
+        [READ_BOARD_LIST_SUCCESS]: (state, {payload: board}) => ({
+            ...state,
+            board,
+        }),
+        [READ_BOARD_LIST_FAILURE]: (state, {payload: boardError}) => ({
+            ...state,
+            boardError,
         }),
     },
     initialState,
