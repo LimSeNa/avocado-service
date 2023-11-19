@@ -7,7 +7,7 @@ const BoardRoutes = () => {
     return (
         <Routes>
             <Route path="" element={<BoardListPage/>}/>
-            <Route path=":id" element={<BoardDetailPage/>}/>
+            <Route path=":id/details" element={<BoardDetailPage/>}/>
             <Route path="write" element={<BoardWritePage/>}/>
         </Routes>
     );
