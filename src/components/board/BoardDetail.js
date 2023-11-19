@@ -16,7 +16,11 @@ const BoardDetail = ({board, boardError}) => {
                     <div className={styles.writerIcon}><IoPersonCircleOutline/></div>
                     <div className={styles.boxWriteInfo}>
                         <span className={styles.boardWriter}>{writer}</span>
-                        <span className={styles.boardWriteTime}>{createAt}</span>
+                        <span className={styles.boardWriteTime}>
+                            {new Date(createAt).getFullYear()}년&nbsp;
+                            {new Date(createAt).getMonth() + 1}월&nbsp;
+                            {new Date(createAt).getDate()}일
+                        </span>
                     </div>
                     <div className={styles.boxReplyInfo}>
                         <span className={styles.replyIcon}><FaRegComments/></span>
