@@ -1,0 +1,106 @@
+.boxBoardItem {
+    width: 70%;
+    padding: 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #7C827B;
+    cursor: pointer;
+}
+
+.boardTitle {
+    margin: 0;
+    color: #29E23D;
+}
+
+.boardTitle:hover {
+    text-decoration: underline;
+}
+
+.boardBody {
+    display: flex;
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 2rem;
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.boxSubInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boardTime {
+    color: #484D47;
+    font-size: 1.2rem;
+}
+
+.deptTag {
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F3F3F4;
+    color: #30352F;
+    font-weight: 600;
+}
+
+.boardBanner {
+    width: 100vw;
+    height: 20rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #f9f9f9;
+}
+
+.boxExplain {
+    width: 70%;
+    padding: 5rem 0 0 15rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.subExplain {
+    margin: 0;
+    color: #484D47;
+}
+
+.explain {
+    margin: 1rem 0;
+}
+
+.linkBtn {
+    width: 20%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: #E1E0E0;
+}
+
+.linkBtn:hover {
+    background-color: #CED1D7;
+}
+
+.boardIcon {
+    padding: 1.3rem;
+    margin-right: 10rem;
+    margin-left: auto;
+}
+
+.boxBoardList {
+    width: calc(100vw - 600px);
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

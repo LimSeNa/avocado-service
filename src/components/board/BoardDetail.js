@@ -17,9 +17,7 @@ const BoardDetail = ({board, boardError}) => {
                     <div className={styles.boxWriteInfo}>
                         <span className={styles.boardWriter}>{writer}</span>
                         <span className={styles.boardWriteTime}>
-                            {new Date(createAt).getFullYear()}년&nbsp;
-                            {new Date(createAt).getMonth() + 1}월&nbsp;
-                            {new Date(createAt).getDate()}일
+                            {new Date(createAt).toDateString().replace(/\s/g, '. ')}
                         </span>
                     </div>
                     <div className={styles.boxReplyInfo}>
