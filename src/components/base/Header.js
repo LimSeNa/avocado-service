@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {BiSolidLocationPlus} from "react-icons/bi";
 import styles from "./header.module.css";
+import {FaUser, FaUserMd} from "react-icons/fa";
 
 const Header = () => {
     const member = JSON.parse(localStorage.getItem('member'));
@@ -13,25 +14,35 @@ const Header = () => {
                 Avocado
             </Link>
             <nav className={styles.nav}>
-                <Link to='/search'>증상 검색</Link>
-                <Link to='/reviews'>병원 리뷰</Link>
-                <Link to='/boards'>질문 게시판</Link>
-                <Link to='/health-infos'>건강정보</Link>
-                {member &&
-                    <Link to=''>
-                        <span className={styles.name}>{member.nickname}</span>님
-                    </Link>
-                }
-                {staff &&
-                    <Link to=''>
-                        <span className={styles.name}>{staff.name}님</span>
-                    </Link>
-                }
-                {!member && !staff &&
-                    <Link to='/auth/login/member' className={styles.login}>
-                        로그인
-                    </Link>
-                }
+                <div className={styles.boxLink}>
+                    <Link to='/search'>증상 검색</Link>
+                </div>
+                <div className={styles.boxLink}>
+                    <Link to='/reviews'>병원 리뷰</Link>
+                </div>
+                <div className={styles.boxLink}>
+                    <Link to='/boards'>질문 게시판</Link>
+                </div>
+                <div className={styles.boxLink}>
+                    <Link to='/health-infos'>건강정보</Link>
+                </div>
+                <div className={styles.boxLink}>
+                    {member &&
+                        <div className={styles.boxUserIcon}>
+                            <FaUser className={styles.userIcon}/>
+                        </div>
+                    }
+                    {staff &&
+                        <div className={styles.boxUserIcon}>
+                            <FaUserMd className={styles.userIcon}/>
+                        </div>
+                    }
+                    {!member && !staff &&
+                        <Link to='/auth/login/member' className={styles.login}>
+                            로그인
+                        </Link>
+                    }
+                </div>
             </nav>
         </div>
     );

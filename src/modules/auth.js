@@ -3,6 +3,7 @@ import produce from "immer";
 import createRequestSaga, {createRequestActionTypes} from "../lib/createRequestSaga";
 import * as authAPI from "../lib/api/auth";
 import {takeLatest} from "redux-saga/effects";
+import client from "../lib/api/client";
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const CHANGE_CODE = 'auth/CHANGE_CODE';
@@ -120,18 +121,34 @@ const auth = handleActions(
             ...state,
             [form]: initialState[form]
         }),
-        [MEMBER_LOGIN_SUCCESS]: (state, {payload: memberAuth}) => ({
-            ...state,
-            memberAuth, // memberAuth: memberAuth
-        }),
+        [MEMBER_LOGIN_SUCCESS]: (state, {payload: memberAuth}) => {
+            try {
+                localStorage.setItem('member', JSON.stringify(memberAuth));
+                client.defaults.headers.common['Authorization'] = `Bearer ${memberAuth}`;
+            } catch (e) {
+                console.log('localStorage is not working.');
+            }
+            return {
+                ...state,
+                memberAuth,
+            }
+        },
         [MEMBER_LOGIN_FAILURE]: (state, {payload: error}) => ({
             ...state,
             memberAuthError: error,
         }),
-        [STAFF_LOGIN_SUCCESS]: (state, {payload: staffAuth}) => ({
-            ...state,
-            staffAuth,
-        }),
+        [STAFF_LOGIN_SUCCESS]: (state, {payload: staffAuth}) => {
+            try {
+                localStorage.setItem('staff', JSON.stringify(staffAuth));
+                client.defaults.headers.common['Authorization'] = `Bearer ${staffAuth}`;
+            } catch (e) {
+                console.log('localStorage is not working.');
+            }
+            return {
+                ...state,
+                staffAuth,
+            }
+        },
         [STAFF_LOGIN_FAILURE]: (state, {payload: error}) => ({
             ...state,
             staffAuthError: error,
