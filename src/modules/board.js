@@ -6,7 +6,6 @@ import * as boardAPI from '../lib/api/board';
 const INITIALIZE = 'board/INITIALIZE';
 const CHANGE_FIELD = 'board/CHANGE_FIELD';
 const [WRITE_BOARD, WRITE_BOARD_SUCCESS, WRITE_BOARD_FAILURE] = createRequestActionTypes('board/WRITE_BOARD');
-const [READ_BOARD_LIST, READ_BOARD_LIST_SUCCESS, READ_BOARD_LIST_FAILURE] = createRequestActionTypes('board/READ_BOARD_LIST');
 const [READ_BOARD_DETAIL, READ_BOARD_DETAIL_SUCCESS, READ_BOARD_DETAIL_FAILURE] = createRequestActionTypes('board/READ_BOARD_DETAIL');
 
 export const initialize = createAction(INITIALIZE);
@@ -18,18 +17,15 @@ export const writeBoard = createAction(
     WRITE_BOARD,
     ({memberId, title, body, dept}) => ({memberId, title, body, dept})
 );
-export const readBoardList = createAction(READ_BOARD_LIST);
 export const readBoardDetail = createAction(
     READ_BOARD_DETAIL,
     (id) => (id)
 );
 
 const writeBoardSaga = createRequestSaga(WRITE_BOARD, boardAPI.writeBoard);
-const readBoardListSaga = createRequestSaga(READ_BOARD_LIST, boardAPI.readBoardList);
 const readBoardDetailSaga = createRequestSaga(READ_BOARD_DETAIL, boardAPI.readBoardDetail);
 export function* boardSaga() {
     yield takeLatest(WRITE_BOARD, writeBoardSaga);
-    yield takeLatest(READ_BOARD_LIST, readBoardListSaga);
     yield takeLatest(READ_BOARD_DETAIL, readBoardDetailSaga);
 }
 
@@ -54,14 +50,6 @@ const board = handleActions(
             board,
         }),
         [WRITE_BOARD_FAILURE]: (state, {payload: boardError}) => ({
-            ...state,
-            boardError,
-        }),
-        [READ_BOARD_LIST_SUCCESS]: (state, {payload: board}) => ({
-            ...state,
-            board,
-        }),
-        [READ_BOARD_LIST_FAILURE]: (state, {payload: boardError}) => ({
             ...state,
             boardError,
         }),

@@ -1,4 +1,4 @@
-import BoardListContainer from "../../containers/board/BoardListContainer";
+import BoardListContainer from "../../containers/boards/BoardListContainer";
 
 const BoardListPage = () => {
     return (

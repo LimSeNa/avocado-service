@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import BoardListPage from "../pages/board/BoardListPage";
+import BoardListPage from "../pages/boards/BoardListPage";
 import BoardDetailPage from "../pages/board/BoardDetailPage";
 import BoardWritePage from "../pages/board/BoardWritePage";
 

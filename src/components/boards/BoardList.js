@@ -3,11 +3,11 @@ import styles from "./board-list.module.css";
 import BoardIcon from "../../assets/board-icon.png"
 import {IoArrowForwardSharp} from "react-icons/io5";
 
-const BoardItem = ({boardItem}) => {
-    const {title, body, dept, createAt} = boardItem;
+const BoardItem = ({boardItem, handleNavigate}) => {
+    const {id, title, body, dept, createAt} = boardItem;
 
     return (
-        <div className={styles.boxBoardItem}>
+        <div className={styles.boxBoardItem} onClick={() => handleNavigate(id)}>
             <h1 className={styles.boardTitle}>{title}</h1>
             <p className={styles.boardBody}>{body}</p>
             <div className={styles.boxSubInfo}>
@@ -19,8 +19,8 @@ const BoardItem = ({boardItem}) => {
 };
 
 
-const BoardList = ({board, boardError}) => {
-    if (boardError) return <div>게시글 상세 조회 실패</div>
+const BoardList = ({boards, boardsError, handleNavigate}) => {
+    if (boardsError) return <div>게시글 목록 조회 실패</div>
 
     return (
         <div>
@@ -36,9 +36,9 @@ const BoardList = ({board, boardError}) => {
                 <img className={styles.boardIcon} src={BoardIcon} alt='board-icon'/>
             </div>
             <div className={styles.boxBoardList}>
-                {board && board.content && <>
-                    {board.content.map(boardItem =>
-                        <BoardItem boardItem={boardItem}/>
+                {boards && boards.content && <>
+                    {boards.content.map(boardItem =>
+                        <BoardItem key={boardItem.id} boardItem={boardItem} handleNavigate={handleNavigate}/>
                     )}
                 </>}
             </div>
