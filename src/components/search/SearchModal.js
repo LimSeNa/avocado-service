@@ -13,7 +13,7 @@ const SearchModal = ({onClick, message, handleInitialize}) => {
                     <div className={styles.searchModalIconBox}><FaHospital className={styles.searchModalIcon}/></div>
                     <div className={styles.searchModalText}>
                         <p className={styles.searchModalMessage}>{message}</p>
-                        {message === '다시 질문해주세요.' ? null : <p className={styles.searchModalP}>를 추천합니다.</p>}
+                        {message === '질문 게시판을 활용해 보세요.' ? null : <p className={styles.searchModalP}>를 추천합니다.</p>}
                     </div>
                 </div>
             </div>
