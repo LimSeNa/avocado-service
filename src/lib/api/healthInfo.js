@@ -1,9 +1,9 @@
 import client from "./client";
 
-export const readInfoList = (page) => {
+export const readInfoList = ({deptNum, page}) => {
     return client.get(`/api/health-infos`, {
         params: {
-            dept: 1,
+            dept: deptNum,
             page,
             size: 5,
         }

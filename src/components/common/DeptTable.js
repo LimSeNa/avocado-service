@@ -1,4 +1,6 @@
 import styles from "./tabel.module.css";
+import {useDispatch} from "react-redux";
+import {readInfoList} from "../../modules/healthInfo";
 
 const deptMap = [
     {
@@ -84,10 +86,17 @@ const deptMap = [
 ];
 
 const DeptTable = () => {
+    const dispatch = useDispatch();
+
+    const handleDeptNum = (e) => {
+        const deptNum = e.target.id;
+        dispatch(readInfoList({deptNum, page: 0}));
+    };
+
     return (
         <div className={styles.boxTable}>
             {deptMap.map(deptItem => (
-                <div className={styles.boxDeptItem} key={deptItem.id} value={deptItem.id}>
+                <div className={styles.boxDeptItem} key={deptItem.id} id={deptItem.id} onClick={handleDeptNum}>
                     {deptItem.deptName}
                 </div>
             ))}

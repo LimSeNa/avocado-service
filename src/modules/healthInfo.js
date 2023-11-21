@@ -9,7 +9,7 @@ const [READ_INFO_LIST, READ_INFO_LIST_SUCCESS, READ_INFO_LIST_FAILURE] = createR
 export const initialize = createAction(INITIALIZE);
 export const readInfoList = createAction(
     READ_INFO_LIST,
-    (page) => (page)
+    ({deptNum, page}) => ({deptNum, page})
 );
 
 const readInfoListSaga = createRequestSaga(READ_INFO_LIST, healthInfoAPI.readInfoList);
