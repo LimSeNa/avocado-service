@@ -1,0 +1,64 @@
+.boxHealthInfo {
+    width: calc(100vw - 800px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxInfoItem {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 2rem;
+    margin: 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #7C827B;
+}
+
+.boxInfoTitle {
+    margin: 0;
+}
+
+.infoTitle {
+    color: #29E23D;
+    cursor: pointer;
+}
+
+.infoTitle:hover {
+    text-decoration: underline;
+}
+
+.boxSubInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.boxWriter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.iconPencil {
+    margin-right: 5px;
+}
+
+.deptTag {
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F3F3F4;
+    color: #30352F;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}

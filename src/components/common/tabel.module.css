@@ -1,0 +1,57 @@
+.boxTable {
+    width: calc(100vw - 1800px);
+    margin: 5rem auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 2px solid #7C827B;
+    border-radius: 0.8rem;
+}
+
+.boxDeptItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+.boxTable > div {
+    border-top: none;
+    border-right: 2px solid #7C827B;
+    border-bottom: 2px solid #7C827B;
+    border-left: none;
+    overflow: hidden;
+}
+
+.boxTable > div:nth-child(4n) {
+    border-right: none;
+}
+
+.boxTable > div:nth-child(n+13) {
+    border-bottom: none;
+}
+
+.boxTable > div:first-child {
+    border-top-left-radius: 0.8rem;
+}
+
+.boxTable > div:nth-child(4) {
+    border-top-right-radius: 0.8rem;
+}
+
+.boxTable > div:nth-child(n+13) {
+    border-bottom-left-radius: 0.8rem;
+}
+
+.boxTable > div:last-child {
+    border-bottom-right-radius: 0.8rem;
+}
+
+.boxDeptItem:hover {
+    background-color: #F3FCF4;
+    color: #29E23D;
+    font-weight: 600;
+}
