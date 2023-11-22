@@ -1,11 +1,11 @@
 import client from "./client";
 
-export const readInfoList = ({deptNum, page}) => {
+export const readInfoList = ({deptNum, pageNum}) => {
     return client.get(`/api/health-infos`, {
         params: {
             dept: deptNum,
-            page,
-            size: 5,
+            page: pageNum,
+            size: 2,
         }
     });
 };

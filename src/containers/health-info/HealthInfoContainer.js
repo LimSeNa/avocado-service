@@ -1,7 +1,7 @@
 import HealthInfo from "../../components/health-info/HealthInfo";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {initialize} from "../../modules/healthInfo";
+import {readInfoList} from "../../modules/healthInfo";
 
 const HealthInfoContainer = () => {
     const dispatch = useDispatch();
@@ -11,9 +11,10 @@ const HealthInfoContainer = () => {
         loading: loading['healthInfo/READ_INFO_LIST'],
     }));
 
+    // 처음 렌더링 때에만 실행 : deps에 빈 배열
     useEffect(() => {
-        dispatch(initialize());
-    }, [dispatch]);
+        dispatch(readInfoList({deptNum: null, pageNum: 0}));
+    }, []);
 
     return (
         <>

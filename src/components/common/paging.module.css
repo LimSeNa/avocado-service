@@ -1,0 +1,25 @@
+.boxPaging {
+    width: calc(100vw - 1800px);
+    margin: 5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.buttonPaging {
+    all: unset;
+    border: none;
+    border-radius: 1.6rem;
+    padding: 1rem 1.4rem;
+    background-color: #29E23D;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00CE27;
+}
