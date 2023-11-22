@@ -25,6 +25,8 @@ const InfoItem = ({infoItem}) => {
 const HealthInfo = ({healthInfo, healthInfoError}) => {
     if (healthInfoError) return <div>건강 정보 목록 조회 실패</div>
 
+    if (healthInfo && healthInfo.content.length === 0) return <div className={styles.boxNoItem}>아직 업로드된 건강 정보가 없어요!</div>
+
     return (
         <div className={styles.boxHealthInfo}>
             {healthInfo.content.map(infoItem =>

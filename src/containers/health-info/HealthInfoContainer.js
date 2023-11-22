@@ -1,7 +1,7 @@
 import HealthInfo from "../../components/health-info/HealthInfo";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {readInfoList} from "../../modules/healthInfo";
+import {useEffect} from "react";
+import {initialize} from "../../modules/healthInfo";
 
 const HealthInfoContainer = () => {
     const dispatch = useDispatch();
@@ -10,11 +10,10 @@ const HealthInfoContainer = () => {
         healthInfoError: healthInfo.healthInfoError,
         loading: loading['healthInfo/READ_INFO_LIST'],
     }));
-    const [page, setPage] = useState(0);
 
     useEffect(() => {
-        dispatch(readInfoList(page));
-    }, [dispatch, page]);
+        dispatch(initialize());
+    }, [dispatch]);
 
     return (
         <>
