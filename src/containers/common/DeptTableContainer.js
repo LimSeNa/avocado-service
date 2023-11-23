@@ -1,7 +1,6 @@
 import DeptTable from "../../components/common/DeptTable";
 import {changeNum, readInfoList} from "../../modules/healthInfo";
 import {useDispatch} from "react-redux";
-import {useEffect} from "react";
 
 const DeptTableContainer = () => {
     const dispatch = useDispatch();
