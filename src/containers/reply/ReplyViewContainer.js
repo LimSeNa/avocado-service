@@ -7,10 +7,10 @@ import {useParams} from "react-router-dom";
 const ReplyViewContainer = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {comment, commentError, loading} = useSelector(({reply, loading}) => ({
+    const {comment, commentError, loadingDesc} = useSelector(({reply, loading}) => ({
         comment: reply.comment,
         commentError: reply.commentError,
-        loading: loading['reply/READ_REPLY_DESC'],
+        loadingDesc: loading['reply/READ_REPLY_DESC'],
     }));
 
     const handleDesc = () => {
@@ -27,11 +27,11 @@ const ReplyViewContainer = () => {
 
     return (
         <>
-            {!loading && comment && <ReplyView comment={comment}
-                                                    handleDesc={handleDesc}
-                                                    handleAsc={handleAsc}
+            {!loadingDesc && comment && <ReplyView comment={comment}
+                                                   handleDesc={handleDesc}
+                                                   handleAsc={handleAsc}
             />}
-            {!loading && commentError && <ReplyView commentError={commentError}/>}
+            {!loadingDesc && commentError && <ReplyView commentError={commentError}/>}
         </>
     );
 };
