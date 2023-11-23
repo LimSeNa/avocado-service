@@ -8,7 +8,7 @@ const Reply = ({reply, handleChange, handleSend}) => {
                    onChange={handleChange}
             />
             <button onClick={handleSend}>
-                <LuSend />
+                <LuSend/>
             </button>
         </div>
     );
