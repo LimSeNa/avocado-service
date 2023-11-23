@@ -15,6 +15,7 @@ const [MEMBER_SIGNUP, MEMBER_SIGNUP_SUCCESS, MEMBER_SIGNUP_FAILURE] = createRequ
 const [STAFF_SIGNUP,STAFF_SIGNUP_SUCCESS, STAFF_SIGNUP_FAILURE] = createRequestActionTypes('auth/STAFF_SIGNUP');
 const [SEND_EMAIL,SEND_EMAIL_SUCCESS, SEND_EMAIL_FAILURE] = createRequestActionTypes('auth/SEND_EMAIL');
 const [CONFIRM_EMAIL,CONFIRM_EMAIL_SUCCESS, CONFIRM_EMAIL_FAILURE] = createRequestActionTypes('auth/CONFIRM_EMAIL');
+const [LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE] = createRequestActionTypes('auth/LOGOUT');
 
 export const changeField = createAction(
     CHANGE_FIELD,
@@ -61,6 +62,8 @@ export const confirmEmail = createAction(
     ({email, code}) => ({email, code}),
 );
 
+export const logout = createAction(LOGOUT);
+
 // saga 생성
 const memberLoginSaga = createRequestSaga(MEMBER_LOGIN, authAPI.memberLogin);
 const staffLoginSaga = createRequestSaga(STAFF_LOGIN, authAPI.staffLogin);
@@ -68,6 +71,7 @@ const memberSignUpSaga = createRequestSaga(MEMBER_SIGNUP, authAPI.memberSignUp);
 const staffSignUpSaga = createRequestSaga(STAFF_SIGNUP, authAPI.staffSignUp);
 const sendEmailSaga = createRequestSaga(SEND_EMAIL, authAPI.sendEmail);
 const confirmEmailSaga = createRequestSaga(CONFIRM_EMAIL, authAPI.confirmEmail);
+const logoutSaga = createRequestSaga(LOGOUT, authAPI.logout);
 export function* authSaga() {
     yield takeLatest(MEMBER_LOGIN, memberLoginSaga); // MEMBERLOGIN 액션에 대해 memberLoginSaga 실행
     yield takeLatest(STAFF_LOGIN, staffLoginSaga);
@@ -75,6 +79,7 @@ export function* authSaga() {
     yield takeLatest(STAFF_SIGNUP, staffSignUpSaga);
     yield takeLatest(SEND_EMAIL, sendEmailSaga);
     yield takeLatest(CONFIRM_EMAIL, confirmEmailSaga);
+    yield takeLatest(LOGOUT, logoutSaga);
 }
 
 const initialState = {
@@ -99,6 +104,8 @@ const initialState = {
         dept: '',
     },
     code: '',
+    auth: null,
+    authError: null,
     memberAuth: null,
     memberAuthError: null,
     staffAuth: null,
@@ -184,6 +191,24 @@ const auth = handleActions(
         [CONFIRM_EMAIL_FAILURE]: (state, {payload: error}) => ({
             ...state,
             certificationError: error
+        }),
+        [LOGOUT]: state => {
+            try {
+                localStorage.clear();
+            } catch (e) {
+                console.log('localStorage is not working.');
+            }
+            return {
+                ...state,
+            }
+        },
+        [LOGOUT_SUCCESS]: (state, {payload: auth}) => ({
+            ...state,
+            auth,
+        }),
+        [LOGOUT_FAILURE]: (state, {payload: authError}) => ({
+            ...state,
+            authError,
         }),
     },
     initialState,

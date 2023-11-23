@@ -2,10 +2,17 @@ import {Link} from "react-router-dom";
 import {BiSolidLocationPlus} from "react-icons/bi";
 import styles from "./header.module.css";
 import {FaUser, FaUserMd} from "react-icons/fa";
+import {useState} from "react";
+import UserModal from "./UserModal";
 
 const Header = () => {
     const member = JSON.parse(localStorage.getItem('member'));
     const staff = JSON.parse(localStorage.getItem('staff'));
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleModal = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className={styles.header}>
@@ -28,12 +35,12 @@ const Header = () => {
                 </div>
                 <div className={styles.boxLink}>
                     {member &&
-                        <div className={styles.boxUserIcon}>
+                        <div className={styles.boxUserIcon} onClick={handleModal}>
                             <FaUser className={styles.userIcon}/>
                         </div>
                     }
                     {staff &&
-                        <div className={styles.boxUserIcon}>
+                        <div className={styles.boxUserIcon} onClick={handleModal}>
                             <FaUserMd className={styles.userIcon}/>
                         </div>
                     }
@@ -42,6 +49,7 @@ const Header = () => {
                             로그인
                         </Link>
                     }
+                    {isOpen && <UserModal member={member} staff={staff} handleModal={handleModal}/>}
                 </div>
             </nav>
         </div>

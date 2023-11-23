@@ -17,3 +17,5 @@ export const sendEmail = ({email}) =>
 
 export const confirmEmail = ({email, code}) =>
     client.post('/mail/certification-email', {email, code});
+
+export const logout = () => client.post('/api/auth/logout');
