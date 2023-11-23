@@ -192,7 +192,7 @@ const auth = handleActions(
             ...state,
             certificationError: error
         }),
-        [LOGOUT]: state => {
+        [LOGOUT_SUCCESS]: (state, {payload: auth}) => {
             try {
                 localStorage.clear();
             } catch (e) {
@@ -200,12 +200,9 @@ const auth = handleActions(
             }
             return {
                 ...state,
+                auth,
             }
         },
-        [LOGOUT_SUCCESS]: (state, {payload: auth}) => ({
-            ...state,
-            auth,
-        }),
         [LOGOUT_FAILURE]: (state, {payload: authError}) => ({
             ...state,
             authError,
