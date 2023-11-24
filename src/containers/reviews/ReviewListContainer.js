@@ -1,17 +1,34 @@
 import ReviewList from "../../components/reviews/ReviewList";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {initialize, readReviewList} from "../../modules/reviews";
+import {initialize, readReviewHospital, readReviewList} from "../../modules/reviews";
 import {useNavigate} from "react-router-dom";
+import {changeField} from "../../modules/review";
 
 const ReviewListContainer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {reviews, reviewsError, loading} = useSelector(({reviews, loading}) => ({
+    const {targetHospital, reviews, reviewsError, loading} = useSelector(({review, reviews, loading}) => ({
+        targetHospital: review.targetHospital,
         reviews: reviews.reviews,
         reviewsError: reviews.reviewsError,
         loading: loading['reviews/READ_REVIEW_LIST'],
     }));
+
+    const handleChange = (e) => {
+        dispatch(changeField({
+                key: 'targetHospital',
+                value: e.target.value,
+            }),
+        );
+    };
+
+    const handleSearch = (e) => {
+        if (e.key === 'Enter') {
+            console.log(targetHospital);
+            dispatch(readReviewHospital({targetHospital: targetHospital, pageNum: 0}));
+        }
+    };
 
     const handleNavigate = (id) => {
         navigate(`/reviews/${id}/details`);
@@ -26,6 +43,9 @@ const ReviewListContainer = () => {
     return (
         <>
             {!loading && reviews && <ReviewList reviews={reviews}
+                                                targetHospital={targetHospital}
+                                                handleChange={handleChange}
+                                                handleSearch={handleSearch}
                                                 handleNavigate={handleNavigate}
             />}
             {!loading && reviewsError && <ReviewList reviewsError={reviewsError}/>}

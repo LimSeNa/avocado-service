@@ -36,14 +36,18 @@ const ReviewItem = ({reviewItem, handleNavigate}) => {
     );
 };
 
-const ReviewList = ({reviews, reviewsError, handleNavigate}) => {
+const ReviewList = ({reviews, reviewsError, targetHospital, handleChange, handleSearch, handleNavigate}) => {
     if (reviewsError) return <div>리뷰 목록 조회 실패</div>
 
     return (
         <div>
             <div>
                 <IoIosSearch/>
-                <input placeholder='병원을 검색해 보세요.'/>
+                <input placeholder='병원을 검색해 보세요.'
+                       value={targetHospital}
+                       onChange={handleChange}
+                       onKeyUp={handleSearch}
+                />
             </div>
             <div>
                 {reviews.content.map(reviewItem =>

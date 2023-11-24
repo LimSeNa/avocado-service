@@ -13,5 +13,15 @@ export const readReviewList = ({deptNum, pageNum}) => {
     });
 };
 
+export const readReviewHospital = ({targetHospital, pageNum}) => {
+    return client.get(`/api/reviews/hospital`, {
+        params: {
+            targetHospital,
+            page: pageNum,
+            size: 5,
+        }
+    });
+};
+
 export const readReviewDetail = (id) =>
     client.get(`/api/reviews/${id}/details`);
