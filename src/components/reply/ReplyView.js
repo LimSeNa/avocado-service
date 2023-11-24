@@ -24,13 +24,13 @@ const ReplyView = ({comment, commentError, handleDesc, handleAsc}) => {
     return (
         <div className={styles.boxView}>
             <ReplyDropDown handleDesc={handleDesc} handleAsc={handleAsc}/>
-            {comment && comment.data ?
+            {comment && comment.data && comment.data.length !==0 ?
                 <div className={styles.boxReply}>
                     {comment.data.map(replyItem =>
                         <ReplyItem key={crypto.randomUUID()} replyItem={replyItem}/>
                     )}
                 </div>
-                : <div>아직 등록된 댓글이 없어요. 가장 먼저 댓글을 달아보세요!</div>
+                : <div className={styles.boxNoReply}>아직 등록된 댓글이 없어요. 가장 먼저 댓글을 달아보세요!</div>
             }
         </div>
     );
