@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import ReviewListPage from "../pages/review/ReviewListPage";
+import ReviewListPage from "../pages/reviews/ReviewListPage";
 import ReviewDetailPage from "../pages/review/ReviewDetailPage";
 import ReviewWritePage from "../pages/review/ReviewWritePage";
 

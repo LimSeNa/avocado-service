@@ -10,7 +10,7 @@ const HealthInfoPage = () => {
             <Banner title={'검증된 건강 정보를 확인하여 유용한 팁을 얻어 가세요!'}
                     icon={HealthInfoIcon}
             />
-            <DeptTableContainer/>
+            <DeptTableContainer type={'health-info'}/>
             <HealthInfoContainer/>
             <PagingContainer/>
         </>
