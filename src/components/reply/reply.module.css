@@ -27,6 +27,10 @@
     outline: none;
 }
 
+.boxButton {
+    position: relative;
+}
+
 .buttonReply {
     all: unset;
     height: 100px;
@@ -49,4 +53,44 @@
 
 .iconSend:hover {
     color: #868e96;
+}
+
+.modalSend {
+    position: absolute;
+    left: -180px;
+    bottom: -110px;
+}
+
+.ballon {
+    width: 400px;
+    height: 60px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #484848;
+    border-radius: 0.4em;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.ballon:after {
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom-color: #484848;
+    border-top: 0;
+    margin-left: -20px;
+    margin-top: -20px;
+    top: 0;
+    left: 50%;
+    position: absolute;
+    content: '';
+}
+
+.iconWarning {
+    margin-right: 10px;
 }

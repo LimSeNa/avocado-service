@@ -2,7 +2,7 @@ import Reply from "../../components/reply/Reply";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize, readReplyDesc, writeReply} from "../../modules/reply";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 const ReplyContainer = () => {
     const {id} = useParams();
@@ -13,6 +13,8 @@ const ReplyContainer = () => {
         reply: reply.reply,
         loading: loading['reply/WRITE_REPLY'],
     }));
+    const staff = JSON.parse(localStorage.getItem('staff'));
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleChange = e => {
         dispatch(changeField({
@@ -23,12 +25,16 @@ const ReplyContainer = () => {
     };
 
     const handleSend = () => {
-        dispatch(writeReply({
-                staffId,
-                boardId,
-                reply,
-            }),
-        );
+        if (staff) {
+            dispatch(writeReply({
+                    staffId,
+                    boardId,
+                    reply,
+                }),
+            );
+        } else if (!staff) {
+            setIsOpen(!isOpen);
+        }
     };
 
     useEffect(() => {
@@ -48,6 +54,7 @@ const ReplyContainer = () => {
         <Reply reply={reply}
                handleChange={handleChange}
                handleSend={handleSend}
+               isOpen={isOpen}
         />
     );
 };
