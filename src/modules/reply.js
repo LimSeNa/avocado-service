@@ -60,6 +60,7 @@ const reply = handleActions(
         }),
         [WRITE_REPLY_SUCCESS]: (state, {payload: comment}) => ({
             ...state,
+            reply: '',
             comment,
         }),
         [WRITE_REPLY_FAILURE]: (state, {payload: commentError}) => ({
