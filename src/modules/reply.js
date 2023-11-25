@@ -44,7 +44,7 @@ export function* replySaga() {
 }
 
 const initialState = {
-    staffId: JSON.parse(localStorage.getItem('staff')) ? JSON.parse(localStorage.getItem('staff')).memberId : null,
+    staffId: JSON.parse(localStorage.getItem('staff')) ? JSON.parse(localStorage.getItem('staff')).memberId : '',
     boardId: '',
     reply: '',
     comment: null,

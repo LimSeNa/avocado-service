@@ -1,19 +1,8 @@
-import styled from "styled-components";
-import Button from "../common/Button";
-
-const ReviewButtonBlock = styled.div`
-
-`;
-
-const StyledButton = styled(Button)`
-
-`;
-
-const ReviewButton = ({onPublish}) => {
+const ReviewButton = ({handleWrite}) => {
     return (
-        <ReviewButtonBlock>
-            <StyledButton onClick={onPublish}>리뷰 등록</StyledButton>
-        </ReviewButtonBlock>
+        <div>
+            <button onClick={handleWrite}>리뷰 등록</button>
+        </div>
     );
 };
 

@@ -1,6 +1,6 @@
 import client from "./client";
 
-export const postReview = ({memberId, title, body, starPoint, targetHospital, targetDept, photoPath}) =>
+export const writeReview = ({memberId, title, body, starPoint, targetHospital, targetDept, photoPath}) =>
     client.post('/api/reviews', {memberId, title, body, starPoint, targetHospital, targetDept, photoPath});
 
 export const readReviewList = ({deptNum, pageNum}) => {
@@ -8,7 +8,7 @@ export const readReviewList = ({deptNum, pageNum}) => {
         params: {
             deptNum,
             page: pageNum,
-            size: 5,
+            size: 7,
         }
     });
 };
@@ -18,7 +18,7 @@ export const readReviewHospital = ({targetHospital, pageNum}) => {
         params: {
             targetHospital,
             page: pageNum,
-            size: 5,
+            size: 7,
         }
     });
 };

@@ -5,7 +5,7 @@ import {takeLatest} from "redux-saga/effects";
 
 const INITIALIZE = 'review/INITIALIZE';
 const CHANGE_FIELD = 'review/CHANGE_FIELD';
-const [POST_REVIEW, POST_REVIEW_SUCCESS, POST_REVIEW_FAILURE] = createRequestActionTypes('review/POST_REVIEW');
+const [WRITE_REVIEW, WRITE_REVIEW_SUCCESS, WRITE_REVIEW_FAILURE] = createRequestActionTypes('review/WRITE_REVIEW');
 const [READ_REVIEW_DETAIL, READ_REVIEW_DETAIL_SUCCESS, READ_REVIEW_DETAIL_FAILURE] = createRequestActionTypes('review/READ_REVIEW_DETAIL');
 
 export const initialize = createAction(INITIALIZE);
@@ -13,8 +13,8 @@ export const changeField = createAction(
     CHANGE_FIELD,
     ({key, value}) => ({key, value})
 );
-export const postReview = createAction(
-    POST_REVIEW,
+export const writeReview = createAction(
+    WRITE_REVIEW,
     ({memberId, title, body, starPoint, targetHospital, targetDept, photoPath}) => ({memberId, title, body, starPoint, targetHospital, targetDept, photoPath}),
 );
 export const readReviewDetail = createAction(
@@ -23,21 +23,21 @@ export const readReviewDetail = createAction(
 );
 
 // 사가 생성
-const postReviewSaga = createRequestSaga(POST_REVIEW, reviewAPI.postReview);
+const writeReviewSaga = createRequestSaga(WRITE_REVIEW, reviewAPI.writeReview);
 const readReviewDetailSaga = createRequestSaga(READ_REVIEW_DETAIL, reviewAPI.readReviewDetail);
 export function* reviewSaga() {
-    yield takeLatest(POST_REVIEW, postReviewSaga);
+    yield takeLatest(WRITE_REVIEW, writeReviewSaga);
     yield takeLatest(READ_REVIEW_DETAIL, readReviewDetailSaga);
 }
 
 const initialState = {
-    memberId: '',
+    memberId: JSON.parse(localStorage.getItem('member')) ? JSON.parse(localStorage.getItem('member')).memberId : '',
     title: '',
     body: '',
     starPoint: 0,
     targetHospital: '',
     targetDept: '',
-    photoPath: '',
+    photoPath: '12345',
     review: null,
     reviewError: null,
 };
@@ -49,11 +49,11 @@ const review = handleActions(
             ...state,
             [key]: value, // 특정 key 값을 업데이트
         }),
-        [POST_REVIEW_SUCCESS]: (state, {payload: review}) => ({
+        [WRITE_REVIEW_SUCCESS]: (state, {payload: review}) => ({
             ...state,
             review,
         }),
-        [POST_REVIEW_FAILURE]: (state, {payload: reviewError}) => ({
+        [WRITE_REVIEW_FAILURE]: (state, {payload: reviewError}) => ({
             ...state,
             reviewError,
         }),

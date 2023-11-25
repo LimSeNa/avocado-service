@@ -3,8 +3,8 @@ import {takeLatest} from 'redux-saga/effects';
 import createRequestSaga, {createRequestActionTypes} from '../lib/createRequestSaga';
 import * as boardAPI from '../lib/api/board';
 
-const INITIALIZE = 'board/INITIALIZE';
-const [READ_BOARD_LIST, READ_BOARD_LIST_SUCCESS, READ_BOARD_LIST_FAILURE] = createRequestActionTypes('board/READ_BOARD_LIST');
+const INITIALIZE = 'boards/INITIALIZE';
+const [READ_BOARD_LIST, READ_BOARD_LIST_SUCCESS, READ_BOARD_LIST_FAILURE] = createRequestActionTypes('boards/READ_BOARD_LIST');
 
 export const initialize = createAction(INITIALIZE);
 export const readBoardList = createAction(READ_BOARD_LIST);

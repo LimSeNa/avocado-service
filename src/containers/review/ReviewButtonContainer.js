@@ -1,20 +1,12 @@
 import ReviewButton from "../../components/review/ReviewButton";
 import {useDispatch, useSelector} from "react-redux";
-import {postReview} from "../../modules/review";
+import {postReview, writeReview} from "../../modules/review";
 import {useEffect} from "react";
 
 const ReviewButtonContainer = () => {
     const dispatch = useDispatch();
-    const {
-        title,
-        body,
-        starPoint,
-        targetHospital,
-        targetDept,
-        photoPath,
-        review,
-        reviewError
-    } = useSelector(({review}) => ({
+    const {memberId, title, body, starPoint, targetHospital, targetDept, photoPath, review, reviewError} = useSelector(({review}) => ({
+        memberId: review.memberId,
         title: review.title,
         body: review.body,
         starPoint: review.starPoint,
@@ -25,9 +17,8 @@ const ReviewButtonContainer = () => {
         reviewError: review.reviewError,
     }));
 
-    const onPublish = () => {
-        const memberId = JSON.parse(localStorage.getItem('member')).memberId;
-        dispatch(postReview({
+    const handleWrite = () => {
+        dispatch(writeReview({
                 memberId,
                 title,
                 body,
@@ -49,7 +40,7 @@ const ReviewButtonContainer = () => {
     }, [review, reviewError]);
 
     return (
-        <ReviewButton onPublish={onPublish}/>
+        <ReviewButton handleWrite={handleWrite}/>
     );
 };
 
