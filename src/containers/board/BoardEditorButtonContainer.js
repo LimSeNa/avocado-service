@@ -2,16 +2,19 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {initialize, writeBoard} from "../../modules/board";
-import BoardEditorButton from "../../components/board/BoardEditorButton";
+import EditorButton from "../../components/write/EditorButton";
 
 const BoardEditorButtonContainer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {memberId, title, body, dept} = useSelector(({board}) => ({
+    const {memberId, title, body, dept, board, boardError, loading} = useSelector(({board, loading}) => ({
         memberId: board.memberId,
         title: board.title,
         body: board.body,
         dept: board.dept,
+        board: board.board,
+        boardError: board.boardError,
+        loading: loading['board/WRITE_BOARD'],
     }));
 
     const handleSubmit = () => {
@@ -22,16 +25,24 @@ const BoardEditorButtonContainer = () => {
                 dept,
             }),
         );
-
-        navigate('/boards');
     };
 
     useEffect(() => {
-        dispatch(initialize());
-    }, [dispatch]);
+        if (!loading && board) {
+            navigate('/boards');
+            dispatch(initialize());
+        }
+
+        if (!loading && boardError) {
+            alert('게시글 등록 실패!');
+            console.log(boardError);
+        }
+    }, [loading]);
 
     return (
-        <BoardEditorButton handleSubmit={handleSubmit}/>
+        <EditorButton type={'board'}
+                      handleSubmit={handleSubmit}
+        />
     );
 };
 

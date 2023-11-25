@@ -1,11 +1,13 @@
-import ReviewButton from "../../components/review/ReviewButton";
 import {useDispatch, useSelector} from "react-redux";
-import {postReview, writeReview} from "../../modules/review";
+import {initialize, writeReview} from "../../modules/review";
 import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import EditorButton from "../../components/write/EditorButton";
 
 const ReviewButtonContainer = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {memberId, title, body, starPoint, targetHospital, targetDept, photoPath, review, reviewError} = useSelector(({review}) => ({
+    const {memberId, title, body, starPoint, targetHospital, targetDept, photoPath, review, reviewError, loading} = useSelector(({review, loading}) => ({
         memberId: review.memberId,
         title: review.title,
         body: review.body,
@@ -15,9 +17,10 @@ const ReviewButtonContainer = () => {
         photoPath: review.photoPath,
         review: review.review,
         reviewError: review.reviewError,
+        loading: loading['review/WRITE_REVIEW'],
     }));
 
-    const handleWrite = () => {
+    const handleSubmit = () => {
         dispatch(writeReview({
                 memberId,
                 title,
@@ -31,16 +34,20 @@ const ReviewButtonContainer = () => {
     };
 
     useEffect(() => {
-        if (review) {
-            console.log('리뷰 등록 성공!');
+        if (!loading && review) {
+            navigate('/reviews');
+            dispatch(initialize());
         }
-        if (reviewError) {
+
+        if (!loading && reviewError) {
+            alert('리뷰 등록 실패!');
             console.log(reviewError);
         }
-    }, [review, reviewError]);
+    }, [loading]);
 
     return (
-        <ReviewButton handleWrite={handleWrite}/>
+        <EditorButton type={'review'}
+                      handleSubmit={handleSubmit}/>
     );
 };
 
