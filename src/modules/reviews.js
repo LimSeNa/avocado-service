@@ -4,10 +4,15 @@ import * as reviewAPI from "../lib/api/review";
 import {takeLatest} from "redux-saga/effects";
 
 const INITIALIZE = 'reviews/INITIALIZE';
+const CHANGE_FIELD = 'reviews/CHANGE_FIELD';
 const [READ_REVIEW_LIST, READ_REVIEW_LIST_SUCCESS, READ_REVIEW_LIST_FAILURE] = createRequestActionTypes('reviews/READ_REVIEW_LIST');
 const [READ_REVIEW_HOSPITAL, READ_REVIEW_HOSPITAL_SUCCESS, READ_REVIEW_HOSPITAL_FAILURE] = createRequestActionTypes('reviews/READ_REVIEW_HOSPITAL');
 
 export const initialize = createAction(INITIALIZE);
+export const changeField = createAction(
+    CHANGE_FIELD,
+    ({name, value}) => ({name, value})
+);
 export const readReviewList = createAction(
     READ_REVIEW_LIST,
     ({deptNum, pageNum}) => ({deptNum, pageNum})
@@ -25,6 +30,7 @@ export function* reviewsSaga() {
 }
 
 const initialState = {
+    targetHospital: '',
     reviews: null,
     reviewsError: null,
 };
@@ -32,6 +38,10 @@ const initialState = {
 const reviews = handleActions(
     {
         [INITIALIZE]: state => initialState,
+        [CHANGE_FIELD]: (state, {payload: {name, value}}) => ({
+            ...state,
+            [name]: value,
+        }),
         [READ_REVIEW_LIST_SUCCESS]: (state, {payload: reviews}) => ({
             ...state,
             reviews,
@@ -42,6 +52,7 @@ const reviews = handleActions(
         }),
         [READ_REVIEW_HOSPITAL_SUCCESS]: (state, {payload: reviews}) => ({
             ...state,
+            targetHospital: '',
             reviews,
         }),
         [READ_REVIEW_HOSPITAL_FAILURE]: (state, {payload: reviewsError}) => ({

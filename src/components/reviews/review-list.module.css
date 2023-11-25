@@ -1,0 +1,139 @@
+.boxReviewList {
+    width: calc(100vw - 800px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxInput {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-right: 30rem;
+    padding: 0.6rem;
+    padding-left: 0;
+    border: 1px solid #343a40;
+    border-radius: 50px;
+}
+
+.iconSearch {
+    width: 10%;
+    height: 60px;
+}
+
+.input {
+    width: 80%;
+    height: 60px;
+    margin: 0;
+    padding: 2rem;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.boxReview {
+    width: calc(100vw - 800px);
+    margin: 0;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxReviewItem {
+    width: 50%;
+    padding: 2rem;
+    margin: 0;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #343a40;
+}
+
+.boxInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.boxReviewInfo {
+    width: 70%;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 5rem;
+}
+
+.boxSubInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: #495057;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.iconInfo {
+    margin-right: 10px;
+}
+
+.boxStarInfo {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.iconStar {
+    margin-bottom: 2rem;
+}
+
+.linkButton {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #29E23D;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.linkButton:hover {
+    background-color: #00CE27;
+}
+
+.iconArrow {
+    margin-left: 10px;
+}
+
+.boxNoReview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}

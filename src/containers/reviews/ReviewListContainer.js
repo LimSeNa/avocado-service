@@ -3,13 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {initialize, readReviewHospital, readReviewList} from "../../modules/reviews";
 import {useNavigate} from "react-router-dom";
-import {changeField} from "../../modules/review";
+import {changeField} from "../../modules/reviews";
 
 const ReviewListContainer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {targetHospital, reviews, reviewsError, loading} = useSelector(({review, reviews, loading}) => ({
-        targetHospital: review.targetHospital,
+    const {targetHospital, reviews, reviewsError, loading} = useSelector(({reviews, loading}) => ({
+        targetHospital: reviews.targetHospital,
         reviews: reviews.reviews,
         reviewsError: reviews.reviewsError,
         loading: loading['reviews/READ_REVIEW_LIST'],
@@ -17,7 +17,7 @@ const ReviewListContainer = () => {
 
     const handleChange = (e) => {
         dispatch(changeField({
-                key: 'targetHospital',
+                name: 'targetHospital',
                 value: e.target.value,
             }),
         );

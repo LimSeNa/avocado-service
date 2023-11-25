@@ -4,24 +4,50 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border: 2px solid #7C827B;
+    border: 1px solid #343a40;
     border-radius: 0.8rem;
 }
 
-.boxDeptItem {
+.boxDept {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
     padding: 2rem;
     font-size: 1.5rem;
     line-height: 2rem;
     cursor: pointer;
 }
 
+.boxDept:hover {
+    background-color: #F3FCF4;
+    color: #29E23D;
+    font-weight: 600;
+}
+
+.boxClickedDept {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #F3FCF4;
+    color: #29E23D;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+.deptIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
 .boxTable > div {
     border-top: none;
-    border-right: 2px solid #7C827B;
-    border-bottom: 2px solid #7C827B;
+    border-right: 1px solid #343a40;
+    border-bottom: 1px solid #343a40;
     border-left: none;
     overflow: hidden;
 }
@@ -48,10 +74,4 @@
 
 .boxTable > div:last-child {
     border-bottom-right-radius: 0.8rem;
-}
-
-.boxDeptItem:hover {
-    background-color: #F3FCF4;
-    color: #29E23D;
-    font-weight: 600;
 }
