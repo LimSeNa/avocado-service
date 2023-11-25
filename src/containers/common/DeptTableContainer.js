@@ -12,16 +12,25 @@ const DeptTableContainer = ({type}) => {
         // 2. 초기화 후 특정 진료과의 리뷰 목록 조회
         if (type === 'review') {
             dispatch(initialize());
-            dispatch(readReviewList({deptNum: changedDeptNum, pageNum: 0}));
+
+            if (changedDeptNum === 0) {
+                dispatch(readReviewList({deptNum: null, pageNum: 0}));
+            } else if (changedDeptNum !== 0) {
+                dispatch(readReviewList({deptNum: changedDeptNum, pageNum: 0}));
+            }
         }
 
         if (type === 'health-info') {
-            dispatch(readInfoList({deptNum: changedDeptNum, pageNum: 0}));
-            dispatch(changeNum({
-                    name: 'deptNum',
-                    value: changedDeptNum
-                }),
-            );
+            if (changedDeptNum === 0) {
+                dispatch(readInfoList({deptNum: null, pageNum: 0}));
+            } else if (changedDeptNum !== 0) {
+                dispatch(readInfoList({deptNum: changedDeptNum, pageNum: 0}));
+                dispatch(changeNum({
+                        name: 'deptNum',
+                        value: changedDeptNum
+                    }),
+                );
+            }
         }
     };
 
