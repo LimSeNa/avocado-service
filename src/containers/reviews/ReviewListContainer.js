@@ -25,7 +25,6 @@ const ReviewListContainer = () => {
 
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
-            console.log(targetHospital);
             dispatch(readReviewHospital({targetHospital: targetHospital, pageNum: 0}));
         }
     };
@@ -34,11 +33,10 @@ const ReviewListContainer = () => {
         navigate(`/reviews/${id}/details`);
     };
 
-    // 처음 렌더링 때에만 실행 : deps에 빈 배열
     useEffect(() => {
         dispatch(initialize());
         dispatch(readReviewList({deptNum: null, pageNum: 0}));
-    }, []);
+    }, [dispatch]);
 
     return (
         <>

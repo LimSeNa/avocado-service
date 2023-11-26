@@ -1,5 +1,6 @@
 import styles from "./health-info.module.css";
 import {PiPencilSimpleLine} from "react-icons/pi";
+import {v4 as uuid4} from "uuid";
 
 const InfoItem = ({infoItem}) => {
     const {writer, title, dept, healthInfoPath} = infoItem;
@@ -30,7 +31,7 @@ const HealthInfo = ({healthInfo, healthInfoError}) => {
     return (
         <div className={styles.boxHealthInfo}>
             {healthInfo.content.map(infoItem =>
-                <InfoItem key={crypto.randomUUID()} infoItem={infoItem}/>
+                <InfoItem key={uuid4()} infoItem={infoItem}/>
             )}
         </div>
     );

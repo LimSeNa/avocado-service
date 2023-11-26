@@ -16,7 +16,7 @@ const ReviewDetailContainer = () => {
     useEffect(() => {
         dispatch(initialize());
         dispatch(readReviewDetail(id));
-    }, [dispatch, id]);
+    }, []);
 
     return (
         <>

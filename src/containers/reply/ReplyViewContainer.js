@@ -50,11 +50,13 @@ const ReplyViewContainer = ({type}) => {
             {type !== 'review' && !loadingDesc && comment && <ReplyView comment={comment}
                                                                         handleDesc={handleDesc}
                                                                         handleAsc={handleAsc}
+                                                                        type={type}
             />}
             {type !== 'review' && !loadingDesc && commentError && <ReplyView commentError={commentError}/>}
             {type === 'review' && !loadingReviewDesc && comment && <ReplyView comment={comment}
                                                                               handleDesc={handleDesc}
                                                                               handleAsc={handleAsc}
+                                                                              type={type}
             />}
             {type === 'review' && !loadingReviewDesc && commentError && <ReplyView commentError={commentError}/>}
         </>

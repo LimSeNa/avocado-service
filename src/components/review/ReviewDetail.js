@@ -2,6 +2,7 @@ import {AiFillStar} from "react-icons/ai";
 import styles from "../board/detail.module.css";
 import {IoPersonCircleOutline} from "react-icons/io5";
 import {FaRegComments} from "react-icons/fa";
+import {v4 as uuid4} from "uuid";
 
 const ReviewDetail = ({review, reviewError}) => {
     if (reviewError) return <div>리뷰 상세 조회 실패</div>
@@ -13,7 +14,7 @@ const ReviewDetail = ({review, reviewError}) => {
         const stars = [];
 
         for (let i = 1; i <= starPoint; i++) {
-            stars.push(<AiFillStar style={{color: "#FFD745"}}/>);
+            stars.push(<AiFillStar key={uuid4()} style={{color: "#FFD745"}}/>);
         }
 
         return stars;

@@ -9,6 +9,7 @@ import {FiActivity} from "react-icons/fi";
 import {AiOutlineMedicineBox} from "react-icons/ai";
 import {IoManOutline, IoWomanOutline} from "react-icons/io5";
 import {useEffect, useState} from "react";
+import {v4 as uuid4} from "uuid";
 
 const deptMap = [
     {
@@ -159,7 +160,7 @@ const DeptTable = ({handleDeptNum}) => {
     return (
         <div className={styles.boxTable}>
             {deptMapState.map(deptItem => (
-                <div className={deptItem.isClick ? styles.boxClickedDept : styles.boxDept} key={crypto.randomUUID()} onClick={() => {handleClick(deptItem.id); handleDeptNum(deptItem.id);}}>
+                <div className={deptItem.isClick ? styles.boxClickedDept : styles.boxDept} key={uuid4()} onClick={() => {handleClick(deptItem.id); handleDeptNum(deptItem.id);}}>
                     <div className={styles.deptIcon}>{deptItem.deptIcon}</div>
                     <div>{deptItem.deptName}</div>
                 </div>

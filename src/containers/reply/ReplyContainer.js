@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {changeField, initialize, readReplyDesc, readReviewReplyDesc, writeReply, writeReviewReply} from "../../modules/reply";
 import {useEffect, useState} from "react";
+import {readReviewDetail} from "../../modules/review";
 
 const ReplyContainer = ({type}) => {
     const {id} = useParams();

@@ -4,16 +4,17 @@ import {PiPencilSimpleLine, PiTargetBold} from "react-icons/pi";
 import {TbBuildingHospital} from "react-icons/tb";
 import styles from "./review-list.module.css";
 import {FcSearch} from "react-icons/fc";
+import {v4 as uuid4} from "uuid";
 
 const ReviewItem = ({reviewItem, handleNavigate}) => {
-    const {title, targetHospital, targetDept, writer, starPoint} = reviewItem;
+    const {id, title, targetHospital, targetDept, writer, starPoint} = reviewItem;
 
     // 별점 그리는 함수
     const handleStar = (starPoint) => {
         const stars = [];
 
         for (let i = 1; i <= starPoint; i++) {
-            stars.push(<AiFillStar style={{color: "#FFD745"}}/>);
+            stars.push(<AiFillStar key={uuid4()} style={{color: "#FFD745"}}/>);
         }
 
         return stars;
@@ -42,7 +43,7 @@ const ReviewItem = ({reviewItem, handleNavigate}) => {
                     <div>{starPoint}/5</div>
                 </div>
             </div>
-            <button  className={styles.linkButton} onClick={handleNavigate}>
+            <button  className={styles.linkButton} onClick={() => handleNavigate(id)}>
                 <div>리뷰 보러 가기</div>
                 <FaArrowAltCircleRight className={styles.iconArrow}/>
             </button>
@@ -68,9 +69,9 @@ const ReviewList = ({reviews, reviewsError, targetHospital, handleChange, handle
                 {reviews && reviews.content.length !== 0 ?
                     <>
                         {reviews.content.map(reviewItem =>
-                            <ReviewItem key={crypto.randomUUID()}
+                            <ReviewItem key={uuid4()}
                                         reviewItem={reviewItem}
-                                        handleNavigate={() => handleNavigate(reviewItem.id)}
+                                        handleNavigate={handleNavigate}
                             />
                         )}
                     </>
