@@ -27,7 +27,7 @@ const MemberLoginForm = () => {
         );
     };
 
-    const onSubmit = e => {
+    const onSubmit = () => {
         const {email, password} = form;
         dispatch(memberLogin({email, password}));
         navigate('/');

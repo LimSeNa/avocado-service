@@ -2,20 +2,19 @@ import SignUpForm from "../../components/auth/SignUpForm";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {changeCode, changeField, confirmEmail, initializeForm, memberSignUp, sendEmail} from "../../modules/auth";
+import {useNavigate} from "react-router-dom";
 
 const MemberSignUpForm = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {form, memberAuth, memberAuthError, code} = useSelector(({auth}) => ({
+    const {form, memberAuth, memberAuthError, code, loading} = useSelector(({auth, loading}) => ({
         form: auth.memberSignUp,
         memberAuth: auth.memberAuth,
         memberAuthError: auth.memberAuthError,
         code: auth.code,
+        loading: loading['auth/MEMBER_SIGNUP'],
     }));
     const [isEmailOpen, setIsEmailOpen] = useState(false);
-
-    useEffect(() => {
-        dispatch(initializeForm('memberSignUp'));
-    }, [dispatch]);
 
     const onChange = e => {
         const {name, value} = e.target;
@@ -55,9 +54,7 @@ const MemberSignUpForm = () => {
         );
     };
 
-    const onSubmitMember = e => {
-        e.preventDefault();
-
+    const onSubmitMember = () => {
         const {email, password1, password2, nickname, phonenumber} = form;
         dispatch(memberSignUp({
                 email,
@@ -70,12 +67,19 @@ const MemberSignUpForm = () => {
     };
 
     useEffect(() => {
-        if (memberAuth) {
-            console.log('회원가입 성공!');
-        } else if (memberAuthError) {
-            console.log('회원가입 실패!');
+        dispatch(initializeForm('memberSignUp'));
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (!loading && memberAuth) {
+            console.log('일반 회원 로그인 성공!');
+            navigate('/');
         }
-    }, [memberAuth, memberAuthError]);
+
+        if (!loading && memberAuthError) {
+            alert('회원가입 실패!');
+        }
+    }, [loading]);
 
     return (
         <SignUpForm type="memberSignUp"

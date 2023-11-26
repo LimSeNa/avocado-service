@@ -18,18 +18,7 @@ const EmailCode = ({onChangeCode, onConfirmEmail, code}) => {
     );
 };
 
-const SignUpForm = ({
-                        type,
-                        form,
-                        onChange,
-                        onSendEmail,
-                        onConfirmEmail,
-                        onChangeCode,
-                        onSubmitMember,
-                        onSubmitStaff,
-                        isEmailOpen,
-                        code
-                    }) => {
+const SignUpForm = ({type, form, onChange, onSendEmail, onConfirmEmail, onChangeCode, onSubmitMember, onSubmitStaff, isEmailOpen, code}) => {
     const {
         register,
         handleSubmit,
@@ -37,7 +26,7 @@ const SignUpForm = ({
         formState: {errors}
     } = useForm();
     const passwordRef = useRef(null);
-    passwordRef.current = watch('password');
+    passwordRef.current = watch('password1');
 
     const signupMap = {
         memberSignUp: {
@@ -147,7 +136,7 @@ const SignUpForm = ({
                                         {
                                             required: '필수 입력 항목입니다.',
                                             pattern: {
-                                                value: /^\d{10}$/,
+                                                value: /^\d{11}$/,
                                                 message: '전화번호는 숫자로만 구성되어야 합니다.'
                                             }
                                         })}

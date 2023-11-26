@@ -162,6 +162,7 @@ const auth = handleActions(
         }),
         [MEMBER_SIGNUP_SUCCESS]: (state, {payload: memberAuth}) => ({
             ...state,
+            code: '',
             memberAuth,
         }),
         [MEMBER_SIGNUP_FAILURE]: (state, {payload: error}) => ({
@@ -170,6 +171,7 @@ const auth = handleActions(
         }),
         [STAFF_SIGNUP_SUCCESS]: (state, {payload: staffAuth}) => ({
             ...state,
+            code: '',
             staffAuth,
         }),
         [STAFF_SIGNUP_FAILURE]: (state, {payload: error}) => ({

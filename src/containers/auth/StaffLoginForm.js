@@ -25,7 +25,7 @@ const StaffLoginForm = () => {
         );
     };
 
-    const onSubmit = e => {
+    const onSubmit = () => {
         const {email, password} = form;
         dispatch(staffLogin({email, password}));
         navigate('/');
