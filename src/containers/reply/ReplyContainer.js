@@ -1,19 +1,22 @@
 import Reply from "../../components/reply/Reply";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {changeField, initialize, readReplyDesc, writeReply} from "../../modules/reply";
+import {changeField, initialize, readReplyDesc, readReviewReplyDesc, writeReply, writeReviewReply} from "../../modules/reply";
 import {useEffect, useState} from "react";
 
-const ReplyContainer = () => {
+const ReplyContainer = ({type}) => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {staffId, boardId, reply, loading} = useSelector(({reply, loading}) => ({
+    const {staffId, memberId, boardId, reviewId, reply, comment, loadingWrite, loadingReview} = useSelector(({reply, loading}) => ({
         staffId: reply.staffId,
+        memberId: reply.memberId,
         boardId: reply.boardId,
+        reviewId: reply.reviewId,
         reply: reply.reply,
-        loading: loading['reply/WRITE_REPLY'],
+        comment: reply.comment,
+        loadingWrite: loading['reply/WRITE_REPLY'],
+        loadingReview: loading['reply/WRITE_REVIEW_REPLY'],
     }));
-    const staff = JSON.parse(localStorage.getItem('staff'));
     const [isOpen, setIsOpen] = useState(false);
 
     const handleChange = e => {
@@ -25,36 +28,68 @@ const ReplyContainer = () => {
     };
 
     const handleSend = () => {
-        if (staff) {
-            dispatch(writeReply({
-                    staffId,
-                    boardId,
-                    reply,
-                }),
-            );
-        } else if (!staff) {
-            setIsOpen(!isOpen);
+        if (type === 'review') {
+            if (memberId) {
+                dispatch(writeReviewReply({
+                        memberId,
+                        reviewId,
+                        reply,
+                    }),
+                );
+            } else if (!memberId) {
+                setIsOpen(!isOpen);
+            }
+        }
+
+        if (type !== 'review') {
+            if (staffId) {
+                dispatch(writeReply({
+                        staffId,
+                        boardId,
+                        reply,
+                    }),
+                );
+            } else if (!staffId) {
+                setIsOpen(!isOpen);
+            }
         }
     };
 
+    // 맨 처음 한 번만
     useEffect(() => {
         dispatch(initialize());
+
+        dispatch(changeField({
+                name: 'reviewId',
+                value: id
+            }),
+        );
+
         dispatch(changeField({
                 name: 'boardId',
                 value: id
             }),
         );
+    }, []);
 
-        if (!loading) {
+    // loading이 변경될 때마다
+    // 즉, 댓글 등록 요청이 끝난 후마다 실행
+    useEffect(() => {
+        if (type === 'review' && !loadingReview && comment) {
+            dispatch(readReviewReplyDesc(reviewId));
+        }
+
+        if (type !== 'review' && !loadingWrite && comment) {
             dispatch(readReplyDesc(boardId));
         }
-    }, [dispatch, id, boardId, loading]);
+    }, [loadingReview, loadingWrite]);
 
     return (
         <Reply reply={reply}
                handleChange={handleChange}
                handleSend={handleSend}
                isOpen={isOpen}
+               type={type}
         />
     );
 };
