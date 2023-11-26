@@ -15,25 +15,31 @@
 
 .subInfo {
     margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem; /* 2xl */
+    line-height: 2rem;
     color:  #868e96;
 }
 
 .info {
-    margin: 1rem 0;
+    margin: 0;
     margin-bottom: 2rem;
+    font-size: 3.5rem;
+    line-height: 1;
 }
 
 .boxLink {
     width: 20%;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 0.6rem;
     background-color: #e0e0e0;
-    font-size: 1.125rem;
+    font-size: 1.25rem; /* xl */
     line-height: 1.75rem;
     font-weight: 500;
 }

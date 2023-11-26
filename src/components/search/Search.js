@@ -1,7 +1,7 @@
 import SearchModal from "./SearchModal";
 import {useState} from "react";
 import styles from "./search.module.css";
-import {BsSearch} from "react-icons/bs"
+import {FcSearch} from "react-icons/fc";
 
 const Search = ({symptom, message, messageError, handleChange, handleClick, handleInitialize}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ const Search = ({symptom, message, messageError, handleChange, handleClick, hand
     return (
         <div className={styles.searchBox}>
             <div className={styles.searchInputBox}>
-                <BsSearch className={styles.searchIcon}/>
+                <FcSearch className={styles.searchIcon}/>
                 <input className={styles.searchInput}
                        name="symptom"
                        placeholder="증상을 선택해 주세요."

@@ -10,7 +10,9 @@ const BoardDetail = ({board, boardError}) => {
     return (
         <div className={styles.boxDetail}>
             <div className={styles.boxInfo}>
-                <div className={styles.tag}>{dept}</div>
+                <div className={styles.boxTarget}>
+                    <div className={styles.tag}>{dept}</div>
+                </div>
                 <h1 className={styles.title}>{title}</h1>
                 <div className={styles.boxSubInfo}>
                     <div className={styles.iconWriter}><IoPersonCircleOutline/></div>

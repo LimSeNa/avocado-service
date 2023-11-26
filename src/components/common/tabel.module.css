@@ -13,15 +13,16 @@
     flex-direction: row;
     justify-content: center;
     padding: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 2rem;
+    color: #495057;
     cursor: pointer;
 }
 
 .boxDept:hover {
     background-color: #F3FCF4;
     color: #29E23D;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .boxClickedDept {
@@ -30,10 +31,10 @@
     justify-content: center;
     padding: 2rem;
     background-color: #F3FCF4;
-    color: #29E23D;
-    font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 2rem;
+    font-weight: 500;
+    color: #29E23D;
     cursor: pointer;
 }
 

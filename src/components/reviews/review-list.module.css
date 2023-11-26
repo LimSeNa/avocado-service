@@ -1,10 +1,10 @@
 .boxReviewList {
-    width: calc(100vw - 800px);
-    margin: 0 auto;
+    width: calc(100vw - 1200px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .boxInput {
@@ -14,28 +14,31 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-right: 30rem;
-    padding: 0.6rem;
-    padding-left: 0;
-    border: 1px solid #343a40;
-    border-radius: 50px;
+    margin-right: 18rem;
+    padding: 0.5rem;
+    border: 1px solid #adb5bd;
+    border-radius: 8rem;
+    box-shadow: 9px 10px 9px 0px #dee2e6;
+    -webkit-box-shadow: 9px 5px 9px 0px #dee2e6;
+    -moz-box-shadow: 9px 10px 9px 0px #dee2e6;
 }
 
 .iconSearch {
     width: 10%;
-    height: 60px;
+    height: 50px;
+    margin: 0;
+    margin-right: 0.5rem;
 }
 
 .input {
     width: 80%;
-    height: 60px;
-    margin: 0;
-    padding: 2rem;
-    padding-left: 10px;
+    height: 50px;
     box-sizing: border-box;
+    margin: 0;
+    padding: 1rem;
     border: none;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1.5rem; /* 2xl */
+    line-height: 2rem;
 }
 
 .input:focus {
@@ -43,9 +46,9 @@
 }
 
 .boxReview {
-    width: calc(100vw - 800px);
+    width: calc(100vw - 1200px);
     margin: 0;
-    margin-top: 3rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +57,7 @@
 
 .boxReviewItem {
     width: 50%;
-    padding: 2rem;
+    padding: 3rem;
     margin: 0;
     margin-bottom: 3rem;
     display: flex;
@@ -71,11 +74,15 @@
 
 .boxReviewInfo {
     width: 70%;
+    padding: 0;
+    padding-left: 1rem;
 }
 
 .title {
     margin: 0;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
 }
 
 .boxSubInfo {
@@ -83,11 +90,15 @@
     flex-direction: row;
     align-items: center;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     color: #495057;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 2xl */
     line-height: 2rem;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+.boxSubInfo:last-of-type {
+    margin-bottom: 0;
 }
 
 .iconInfo {
@@ -99,13 +110,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 500;
-    font-size: 1.875rem;
+    font-size: 1.875rem; /* 3xl */
     line-height: 2.25rem;
+    font-weight: 400;
 }
 
 .iconStar {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .linkButton {
@@ -116,10 +127,11 @@
     justify-content: center;
     background-color: #29E23D;
     border: none;
-    border-radius: 0.6rem;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    border-radius: 0.8rem;
+    font-size: 1.5rem; /* 2xl */
+    line-height: 2rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .linkButton:hover {
@@ -134,6 +146,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
 }

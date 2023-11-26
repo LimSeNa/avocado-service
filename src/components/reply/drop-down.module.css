@@ -1,45 +1,47 @@
 .boxDropDown {
     display: flex;
     flex-direction: row;
-    padding-left: 40px;
+    margin: 0;
+    margin-bottom: 3rem;
+    padding-left: 5rem;
 }
 
 .buttonDropDown {
     all: unset;
-    width: 160px;
-    height: 60px;
-    padding: 5px;
-    margin-right: 2rem;
+    width: 100px;
+    height: 40px;
+    padding: 1rem;
+    margin-right: 1rem;
+    text-align: center;
     background-color: #ebebeb;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 40px;
     color: #495057;
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 600;
-    text-align: center;
     cursor: pointer;
 }
 
 .activeButton {
     all: unset;
-    width: 160px;
-    height: 60px;
-    padding: 5px;
-    margin-right: 2rem;
-    background-color: #343a40;
-    border: none;
-    border-radius: 0.4rem;
-    color: #fff;
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 600;
+    width: 100px;
+    height: 40px;
+    padding: 1rem;
+    margin-right: 1rem;
     text-align: center;
+    background-color: #495057;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
     cursor: pointer;
 }
 
 .buttonDropDown:hover {
-    background-color: #ebebeb;
+    background-color: silver;
 }
 
 .activeButton:hover {

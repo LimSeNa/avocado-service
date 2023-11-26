@@ -192,7 +192,10 @@ const SymptomView = ({symptomItem, handleCheck, handlePick}) => {
                        value={symptomItem.text}
                        type='checkbox'
                        checked={symptomItem.checked}
-                       onChange={e => {handleCheck(symptomItem); handlePick(e, symptomItem);}}
+                       onChange={e => {
+                           handleCheck(symptomItem);
+                           handlePick(e, symptomItem);
+                       }}
                 />
                 <label className={symptomItem.checked ? styles.tagTrue : styles.tagLabel} htmlFor={symptomItem.id}>
                     {symptomItem.text}
@@ -228,17 +231,35 @@ const SymptomTag = ({loading, handlePick, handleCheck}) => {
     }, [loading]);
 
     return (
-        <div>
-            <div className={styles.tagBanner}>
-                <h3 className={styles.tagSubInfo}>Avocado의 주요 기능</h3>
-                <h1 className={styles.tagInfo}>아래 항목 중&nbsp;<h1 className={styles.highlight}>해당하는 증상</h1>을 고르고 검색 버튼을 눌러보세요!</h1>
-            </div>
-            <div className={styles.tagBox}>
-                {symptomMap.map(symptomItem => (<SymptomView key={symptomItem.id} symptomItem={symptomItem } handleCheck={handleCheck} handlePick={handlePick}/>))}
-                {!isPlus && isClose ? (<span className={styles.tagSpan}><button className={styles.tagButton} onClick={handleClick}>더보기</button></span>) : null}
-                {isPlus && !isClose && (symptomPlusMap.map(symptomItem => (<SymptomView key={symptomItem.id} symptomItem={symptomItem} handleCheck={handleCheck} handlePick={handlePick}/>)))}
-                {isPlus && !isClose ? (<span className={styles.tagSpan}><button className={styles.tagButton} onClick={handleClick}>접기</button></span>) : null}
-            </div>
+        <div className={styles.tagBox}>
+            {symptomMap.map(symptomItem => (
+                <SymptomView key={symptomItem.id}
+                             symptomItem={symptomItem}
+                             handleCheck={handleCheck}
+                             handlePick={handlePick}
+                />
+            ))}
+            {!isPlus && isClose ?
+                <span className={styles.tagSpan}>
+                    <button className={styles.tagButton}
+                            onClick={handleClick}>더보기</button>
+                </span>
+                : null
+            }
+            {isPlus && !isClose && (symptomPlusMap.map(symptomItem => (
+                <SymptomView key={symptomItem.id}
+                             symptomItem={symptomItem}
+                             handleCheck={handleCheck}
+                             handlePick={handlePick}
+                />
+            )))}
+            {isPlus && !isClose ?
+                <span className={styles.tagSpan}>
+                    <button className={styles.tagButton}
+                            onClick={handleClick}>접기</button>
+                </span>
+                : null
+            }
         </div>
     );
 };

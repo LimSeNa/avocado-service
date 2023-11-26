@@ -1,58 +1,81 @@
 .boxBoardItem {
-    width: 70%;
+    width: 50%;
     padding: 1rem;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #7C827B;
+    border-bottom: 1px solid #343a40;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
+    color: #29E23D;
     cursor: pointer;
 }
 
-.boardTitle {
-    margin: 0;
-    color: #29E23D;
-}
-
-.boardTitle:hover {
+.title:hover {
     text-decoration: underline;
 }
 
-.boardBody {
-    display: flex;
+.body {
     margin: 0;
-    margin-top: 8px;
-    margin-bottom: 2rem;
-    color: #000;
-    font-size: 1.5rem;
+    margin-bottom: 4rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
 }
 
-.boxSubInfo {
+.boxInfo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
-.boardTime {
-    color: #484D47;
-    font-size: 1.2rem;
+.boxSubInfo {
+    display: flex;
+    flex-direction: column;
 }
 
-.deptTag {
+.infoItem {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem; /* 2xl */
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.infoItem:last-of-type {
+    margin-bottom: 0;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.tagDept {
     width: fit-content;
-    padding: 10px;
+    height: 30px;
+    padding: 1rem;
     border: none;
-    border-radius: 10px;
-    background-color: #F3F3F4;
-    color: #30352F;
+    border-radius: 50px;
+    background-color: #F3FCF4;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
     font-weight: 600;
+    color: #00CE27;
 }
 
 .boxBoardList {
-    width: calc(100vw - 600px);
-    margin: 0 auto;
-    margin-top: 2rem;
+    width: calc(100vw - 1200px);
+    margin: 5rem auto;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;

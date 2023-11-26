@@ -1,19 +1,28 @@
 import styles from "./board-list.module.css";
+import {PiPencilSimpleLine} from "react-icons/pi";
+import {SlCalender} from "react-icons/sl";
 
 const BoardItem = ({boardItem, handleNavigate}) => {
-    const {id, title, body, dept, createAt} = boardItem;
+    const {id, title, body, dept, writer, createAt} = boardItem;
 
     return (
         <div className={styles.boxBoardItem} onClick={() => handleNavigate(id)}>
-            <h1 className={styles.boardTitle}>{title}</h1>
-            <p className={styles.boardBody}>{body}</p>
-            <div className={styles.boxSubInfo}>
-                <span className={styles.boardTime}>
-                    {new Date(createAt).toDateString().replace(/\s/g, '. ')}
-                </span>
-                <span className={styles.deptTag}>
+            <h1 className={styles.title}>{title}</h1>
+            <div className={styles.body}>{body}</div>
+            <div className={styles.boxInfo}>
+                <div className={styles.boxSubInfo}>
+                    <div className={styles.infoItem}>
+                        <PiPencilSimpleLine className={styles.icon}/>
+                        <div>작성자 : {writer}</div>
+                    </div>
+                    <div className={styles.infoItem}>
+                        <SlCalender className={styles.icon}/>
+                        <div>작성 날짜 : {new Date(createAt).toDateString().replace(/\s/g, '. ')}</div>
+                    </div>
+                </div>
+                <div className={styles.tagDept}>
                     {dept}
-                </span>
+                </div>
             </div>
         </div>
     );

@@ -1,14 +1,14 @@
 .boxHealthInfo {
-    width: calc(100vw - 800px);
+    width: calc(100vw - 1200px);
     margin: 0 auto;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .boxNoItem {
-    width: calc(100vw - 800px);
+    width: calc(100vw - 1200px);
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -18,20 +18,23 @@
 }
 
 .boxInfoItem {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    width: 40%;
-    padding: 2rem;
+    padding: 1rem;
     margin: 0;
     margin-bottom: 3rem;
-    border-bottom: 1px solid #7C827B;
+    border-bottom: 1px solid #343a40;
 }
 
 .boxInfoTitle {
     margin: 0;
+    margin-bottom: 3rem;
 }
 
 .infoTitle {
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
     color: #29E23D;
     cursor: pointer;
 }
@@ -45,30 +48,32 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .boxWriter {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 2xl */
     line-height: 2rem;
-    font-weight: 400;
+    font-weight: 500;
+    color: #495057;
 }
 
 .iconPencil {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .deptTag {
     width: fit-content;
-    padding: 10px;
+    height: 30px;
+    padding: 1rem;
     border: none;
-    border-radius: 10px;
-    background-color: #F3F3F4;
-    color: #30352F;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 500;
+    border-radius: 50px;
+    background-color: #F5F5F5;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 600;
+    color: #898989;
 }

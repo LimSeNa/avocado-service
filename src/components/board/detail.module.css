@@ -1,13 +1,14 @@
 .boxDetail {
-    width: calc(100vw - 600px);
-    margin: 0 auto;
-    padding: 5rem;
+    width: calc(100vw - 1200px);
+    margin: 5rem auto;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .boxTarget {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,42 +18,52 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1rem;
     padding-bottom: 0;
-    border-bottom: 1px solid #7C827B;
+    margin: 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #343a40;
 }
 
 .tag {
     width: fit-content;
-    margin-right: 10px;
-    padding: 15px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-right: 10px;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 0.6rem;
-    background-color: #F3F3F4;
-    color: #30352F;
+    border-radius: 50px;
+    background-color: #F3FCF4;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     font-weight: 600;
+    color: #00CE27;
 }
 
 .title {
     margin: 0;
-    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 3rem; /* 5xl */
+    line-height: 1;
 }
 
 .boxSubInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 2rem 0;
+    margin: 0;
+    padding: 0 1rem;
+    padding-left: 0;
+    margin-bottom: 1rem;
 }
 
 .iconWriter {
     display: flex;
     align-items: center;
-    margin-right: 0.6rem;
+    margin-right: 10px;
     font-size: 5rem;
+    line-height: 1;
 }
 
 .boxWriteInfo {
@@ -61,35 +72,41 @@
 }
 
 .writer {
-    font-size: 1.58rem;
-    font-weight: 700;
+    font-size: 1.55rem;
+    line-height: 2rem;
+    font-weight: 600;
     padding-bottom: 10px;
 }
 
 .writeTime {
-    font-size: 1.3rem;
-    color: #7C827B;
+    font-size: 1.45rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: #868e96;
 }
 
 .boxReplyInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: normal;
-    color: #7C827B;
+    font-size: 1.55rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: #868e96;
     margin-left: auto;
 }
 
 .iconReply {
-    margin-right: 0.6rem;
+    margin-right: 10px;
 }
 
 .boxBody {
     width: 100%;
-    margin-top: 2rem;
-    padding: 1rem;
-    font-size: 1.58rem;
+    margin: 0;
+    padding: 0 3rem;
     display: flex;
     justify-content: left;
+    font-size: 2.25rem; /* 4xl */
+    line-height: 2.5rem;
+    color: #868e96;
 }

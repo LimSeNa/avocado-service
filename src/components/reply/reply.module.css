@@ -1,8 +1,8 @@
 .boxWriteReply {
-    width: calc(100vw - 800px);
+    width: calc(100vw - 1200px);
     margin: 5rem auto;
-    margin-bottom: 3rem;
-    padding: 1rem 3rem;
+    margin-top: 0;
+    padding: 0 3rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -10,16 +10,19 @@
 }
 
 .inputReply {
-    width: 100%;
-    height: 100px;
+    width: 90%;
+    height: 80px;
     margin: 0;
     margin-right: 1rem;
-    padding: 30px;
-    padding-left: 50px;
+    padding: 0;
+    padding-left: 30px;
     box-sizing: border-box;
-    border: 1px solid #343a40;
-    border-radius: 60px;
-    font-size: 1.875rem;
+    border: 1px solid #adb5bd;
+    border-radius: 8rem;
+    box-shadow: 9px 10px 7px 0px #dee2e6;
+    -webkit-box-shadow: 9px 10px 7px 0px #dee2e6;
+    -moz-box-shadow: 9px 10px 7px 0px #dee2e6;
+    font-size: 1.875rem; /* 4xl */
     line-height: 2.25rem;
 }
 
@@ -52,7 +55,7 @@
 }
 
 .iconSend:hover {
-    color: #868e96;
+    color: #898989;
 }
 
 .modalSend {
