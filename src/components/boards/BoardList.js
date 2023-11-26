@@ -1,7 +1,4 @@
-import {Link} from "react-router-dom";
 import styles from "./board-list.module.css";
-import BoardIcon from "../../assets/board-icon.png"
-import {IoArrowForwardSharp} from "react-icons/io5";
 
 const BoardItem = ({boardItem, handleNavigate}) => {
     const {id, title, body, dept, createAt} = boardItem;

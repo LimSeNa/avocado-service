@@ -5,27 +5,23 @@ import {changeField} from "../../modules/review";
 
 const ReviewEditorContainer = () => {
     const dispatch = useDispatch();
-    const {title, body, starPoint, targetHospital, targetDept, photoPath} = useSelector(({review}) => ({
+    const {title, body, starPoint, targetHospital, targetDept} = useSelector(({review}) => ({
         title: review.title,
         body: review.body,
         starPoint: review.starPoint,
         targetHospital: review.targetHospital,
         targetDept: review.targetDept,
-        photoPath: review.photoPath,
     }));
 
-    const onChangeField = useCallback(payload =>
-        dispatch(changeField(payload)
-        ), [dispatch]);
+    const handleChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
 
     return (
-        <ReviewEditor onChangeField={onChangeField}
-                      title={title}
+        <ReviewEditor title={title}
                       body={body}
                       starPoint={starPoint}
                       targetHospital={targetHospital}
                       targetDept={targetDept}
-                      photoPath={photoPath}
+                      handleChange={handleChange}
         />
     );
 };
