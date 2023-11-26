@@ -7,7 +7,7 @@ const ReviewRoutes = () => {
     return (
         <Routes>
             <Route path='' element={<ReviewListPage/>}/>
-            <Route path=':id' element={<ReviewDetailPage/>}/>
+            <Route path=':id/details' element={<ReviewDetailPage/>}/>
             <Route path='write' element={<ReviewWritePage/>}/>
         </Routes>
     );

@@ -1,16 +1,35 @@
+import {AiFillStar} from "react-icons/ai";
+import styles from "../board/detail.module.css";
 import {IoPersonCircleOutline} from "react-icons/io5";
-import styles from "./detail.module.css";
 import {FaRegComments} from "react-icons/fa";
 
-const BoardDetail = ({board, boardError}) => {
-    if (boardError) return <div>게시글 상세 조회 실패</div>
+const ReviewDetail = ({review, reviewError}) => {
+    if (reviewError) return <div>리뷰 상세 조회 실패</div>
 
-    const {title, body, dept, writer, createAt, boardReplyList} = board.data;
+    const {writer, title, body, starPoint, targetHospital, targetDept, createAt, reviewReplyList} = review.data;
+
+    // 별점 그리는 함수
+    const handleStar = (starPoint) => {
+        const stars = [];
+
+        for (let i = 1; i <= starPoint; i++) {
+            stars.push(<AiFillStar style={{color: "#FFD745"}}/>);
+        }
+
+        return stars;
+    };
 
     return (
         <div className={styles.boxDetail}>
             <div className={styles.boxInfo}>
-                <div className={styles.tag}>{dept}</div>
+                <div className={styles.boxTarget}>
+                    <div className={styles.tag}>{targetHospital}</div>
+                    <div className={styles.tag}>{targetDept}</div>
+                    <div className={styles.tag}>
+                        {starPoint}&nbsp;
+                        {handleStar(starPoint)}
+                    </div>
+                </div>
                 <h1 className={styles.title}>{title}</h1>
                 <div className={styles.boxSubInfo}>
                     <div className={styles.iconWriter}><IoPersonCircleOutline/></div>
@@ -22,7 +41,7 @@ const BoardDetail = ({board, boardError}) => {
                     </div>
                     <div className={styles.boxReplyInfo}>
                         <span className={styles.iconReply}><FaRegComments/></span>
-                        <span>{boardReplyList.length}개의 댓글</span>
+                        <span>{reviewReplyList.length}개의 댓글</span>
                     </div>
                 </div>
             </div>
@@ -31,4 +50,4 @@ const BoardDetail = ({board, boardError}) => {
     );
 };
 
-export default BoardDetail;
+export default ReviewDetail;

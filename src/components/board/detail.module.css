@@ -1,4 +1,4 @@
-.boxBoardDetail {
+.boxDetail {
     width: calc(100vw - 600px);
     margin: 0 auto;
     padding: 5rem;
@@ -7,7 +7,13 @@
     align-items: center;
 }
 
-.boxSubInfo {
+.boxTarget {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.boxInfo {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,29 +22,33 @@
     border-bottom: 1px solid #7C827B;
 }
 
-.deptTag {
+.tag {
     width: fit-content;
-    padding: 10px;
+    margin-right: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     background-color: #F3F3F4;
     color: #30352F;
     font-weight: 600;
 }
 
-.boardTitle {
+.title {
     margin: 0;
     margin-top: 1rem;
 }
 
-.boxSubInfo2 {
+.boxSubInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 2rem 0;
 }
 
-.writerIcon {
+.iconWriter {
     display: flex;
     align-items: center;
     margin-right: 0.6rem;
@@ -50,13 +60,13 @@
     flex-direction: column;
 }
 
-.boardWriter {
+.writer {
     font-size: 1.58rem;
     font-weight: 700;
     padding-bottom: 10px;
 }
 
-.boardWriteTime {
+.writeTime {
     font-size: 1.3rem;
     color: #7C827B;
 }
@@ -71,11 +81,11 @@
     margin-left: auto;
 }
 
-.replyIcon {
+.iconReply {
     margin-right: 0.6rem;
 }
 
-.boxBoardBody {
+.boxBody {
     width: 100%;
     margin-top: 2rem;
     padding: 1rem;

@@ -1,10 +1,10 @@
-import ReviewViewer from "../../components/review/ReviewViewer";
+import ReviewDetail from "../../components/review/ReviewDetail";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {readReviewDetail} from "../../modules/review";
+import {initialize, readReviewDetail} from "../../modules/review";
 import {useParams} from "react-router-dom";
 
-const ReviewViewerContainer = () => {
+const ReviewDetailContainer = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const {review, reviewError, loading} = useSelector(({review, loading}) => ({
@@ -14,18 +14,16 @@ const ReviewViewerContainer = () => {
     }));
 
     useEffect(() => {
+        dispatch(initialize());
         dispatch(readReviewDetail(id));
     }, [dispatch, id]);
 
     return (
         <>
-            {!loading && review && (
-                <ReviewViewer review={review}
-                              reviewError={reviewError}
-                />
-            )}
+            {!loading && review && <ReviewDetail review={review}/>}
+            {!loading && reviewError && <ReviewDetail reviewError={reviewError}/>}
         </>
     );
 };
 
-export default ReviewViewerContainer;
+export default ReviewDetailContainer;

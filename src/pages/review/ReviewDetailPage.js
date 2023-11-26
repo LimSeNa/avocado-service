@@ -1,8 +1,8 @@
-import ReviewViewerContainer from "../../containers/review/ReviewViewerContainer";
+import ReviewDetailContainer from "../../containers/review/ReviewDetailContainer";
 
 const ReviewDetailPage = () => {
     return (
-        <ReviewViewerContainer/>
+        <ReviewDetailContainer/>
     );
 };
 

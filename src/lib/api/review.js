@@ -23,5 +23,4 @@ export const readReviewHospital = ({targetHospital, pageNum}) => {
     });
 };
 
-export const readReviewDetail = (id) =>
-    client.get(`/api/reviews/${id}/details`);
+export const readReviewDetail = (id) => client.get(`/api/reviews/${id}/details`);
