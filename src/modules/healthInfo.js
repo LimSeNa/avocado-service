@@ -24,7 +24,6 @@ export function* healthInfoSaga() {
 
 const initialState = {
     deptNum: 0,
-    pageNum: 0,
     healthInfo: null,
     healthInfoError: null,
 };

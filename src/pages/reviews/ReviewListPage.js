@@ -2,6 +2,7 @@ import ReviewListContainer from "../../containers/reviews/ReviewListContainer";
 import Banner from "../../components/common/Banner";
 import ReviewIcon from "../../assets/review-icon.png";
 import DeptTableContainer from "../../containers/common/DeptTableContainer";
+import PagingContainer from "../../containers/common/PagingContainer";
 
 const ReviewListPage = () => {
     return (
@@ -12,6 +13,7 @@ const ReviewListPage = () => {
             />
             <DeptTableContainer type={'review'}/>
             <ReviewListContainer/>
+            <PagingContainer type={'review'}/>
         </>
     );
 };

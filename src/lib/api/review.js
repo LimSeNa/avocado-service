@@ -8,7 +8,7 @@ export const readReviewList = ({deptNum, pageNum}) => {
         params: {
             deptNum,
             page: pageNum,
-            size: 7,
+            size: 5,
         }
     });
 };
@@ -18,7 +18,7 @@ export const readReviewHospital = ({targetHospital, pageNum}) => {
         params: {
             targetHospital,
             page: pageNum,
-            size: 7,
+            size: 5,
         }
     });
 };

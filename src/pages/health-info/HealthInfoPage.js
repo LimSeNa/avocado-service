@@ -12,7 +12,7 @@ const HealthInfoPage = () => {
             />
             <DeptTableContainer type={'health-info'}/>
             <HealthInfoContainer/>
-            <PagingContainer/>
+            <PagingContainer type={'health-info'}/>
         </>
     );
 };

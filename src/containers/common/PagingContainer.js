@@ -1,20 +1,30 @@
 import Paging from "../../components/common/Paging";
 import {useDispatch, useSelector} from "react-redux";
 import {readInfoList} from "../../modules/healthInfo";
+import {readReviewList} from "../../modules/reviews";
 
-const PagingContainer = () => {
+const PagingContainer = ({type}) => {
     const dispatch = useDispatch();
-    const {deptNum} = useSelector(({healthInfo, loading}) => ({
-        deptNum: healthInfo.deptNum,
+    const {ReviewsDeptNum, InfoDeptNum} = useSelector(({reviews, healthInfo}) => ({
+        ReviewsDeptNum: reviews.deptNum,
+        InfoDeptNum: healthInfo.deptNum,
     }));
 
-    const handlePageNum = e => {
+    const handleReviewsPage = e => {
         const pageNum = e.target.value;
-        dispatch(readInfoList({deptNum, pageNum}));
+        dispatch(readReviewList({deptNum: ReviewsDeptNum, pageNum}));
+    };
+
+    const handleInfoPage = e => {
+        const pageNum = e.target.value;
+        dispatch(readInfoList({deptNum: InfoDeptNum, pageNum}));
     };
 
     return (
-        <Paging handlePageNum={handlePageNum}/>
+        <Paging handleInfoPage={handleInfoPage}
+                handleReviewsPage={handleReviewsPage}
+                type={type}
+        />
     );
 };
 

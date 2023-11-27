@@ -1,7 +1,7 @@
 import DeptTable from "../../components/common/DeptTable";
 import {changeNum, readInfoList} from "../../modules/healthInfo";
 import {useDispatch} from "react-redux";
-import {initialize, readReviewList} from "../../modules/reviews";
+import {changeField, initialize, readReviewList} from "../../modules/reviews";
 
 const DeptTableContainer = ({type}) => {
     const dispatch = useDispatch();
@@ -17,6 +17,11 @@ const DeptTableContainer = ({type}) => {
                 dispatch(readReviewList({deptNum: null, pageNum: 0}));
             } else if (changedDeptNum !== 0) {
                 dispatch(readReviewList({deptNum: changedDeptNum, pageNum: 0}));
+                dispatch(changeField({
+                        name: 'deptNum',
+                        value: changedDeptNum
+                    }),
+                );
             }
         }
 
