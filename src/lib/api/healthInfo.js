@@ -5,7 +5,7 @@ export const readInfoList = ({deptNum, pageNum}) => {
         params: {
             dept: deptNum,
             page: pageNum,
-            size: 7,
+            size: 5,
         }
     });
 };

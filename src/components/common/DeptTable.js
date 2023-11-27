@@ -13,7 +13,7 @@ import {v4 as uuid4} from "uuid";
 
 const deptMap = [
     {
-        id: 0,
+        id: null,
         deptName: '전체',
         deptValue: 'All',
         deptIcon: <MdOutlineLocalHospital/>,

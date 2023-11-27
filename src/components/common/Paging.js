@@ -1,11 +1,44 @@
 import styles from "./paging.module.css";
+import {v4 as uuid4} from "uuid";
+import {MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight} from "react-icons/md";
 
-const Paging = ({handlePlus}) => {
+const pageMap = [
+    {
+        pageNum: 0,
+        pageView: <MdKeyboardDoubleArrowLeft/>
+    },
+    {
+        pageNum: 1,
+        pageView: 1,
+    },
+    {
+        pageNum: 2,
+        pageView: 2,
+    },
+    {
+        pageNum: 3,
+        pageView: 3,
+    },
+    {
+        pageNum: 4,
+        pageView: 4,
+    },
+    {
+        pageNum: 5,
+        pageView: <MdKeyboardDoubleArrowRight/>,
+    }
+];
+
+const Paging = ({handlePageNum}) => {
     return (
         <div className={styles.boxPaging}>
-            <button className={styles.buttonPaging} onClick={handlePlus}>
-                더보기
-            </button>
+            {
+                pageMap.map(page => (
+                    <button className={styles.buttonPaging} key={uuid4()} value={page.pageNum} onClick={handlePageNum}>
+                        {page.pageView}
+                    </button>
+                ))
+            }
         </div>
     );
 };
