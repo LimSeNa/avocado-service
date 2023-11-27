@@ -7,8 +7,11 @@ import {useNavigate} from "react-router-dom";
 const StaffLoginForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {form} = useSelector(({auth}) => ({
+    const {staffAuth, staffAuthError, loading, form} = useSelector(({auth, loading}) => ({
         form: auth.login,
+        staffAuth: auth.staffAuth,
+        staffAuthError: auth.staffAuthError,
+        loading: loading['auth/STAFF_LOGIN'],
     }));
 
     useEffect(() => {
@@ -28,8 +31,18 @@ const StaffLoginForm = () => {
     const onSubmit = () => {
         const {email, password} = form;
         dispatch(staffLogin({email, password}));
-        navigate('/');
     };
+
+    useEffect(() => {
+        if (!loading && staffAuth) {
+            navigate('/');
+            window.location.reload();
+        }
+
+        if (!loading && staffAuthError) {
+            alert('의료진 로그인 실패!');
+        }
+    }, [loading]);
 
     return (
         <LoginForm type="staffLogin"
