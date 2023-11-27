@@ -1,6 +1,7 @@
 import BoardListContainer from "../../containers/boards/BoardListContainer";
 import Banner from "../../components/common/Banner";
 import BoardIocn from "../../assets/board-icon.png";
+import PagingContainer from "../../containers/common/PagingContainer";
 
 const BoardListPage = () => {
     return (
@@ -10,6 +11,7 @@ const BoardListPage = () => {
                     icon={BoardIocn}
             />
             <BoardListContainer/>
+            <PagingContainer type={'board'}/>
         </>
     );
 };

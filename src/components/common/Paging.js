@@ -29,12 +29,12 @@ const pageMap = [
     }
 ];
 
-const Paging = ({handleReviewsPage, handleInfoPage, type}) => {
+const Paging = ({handleReviewsPage, handleBoardsPage, handleInfoPage, type}) => {
     return (
         <div className={styles.boxPaging}>
             {
                 pageMap.map(page => (
-                    <button className={styles.buttonPaging} key={uuid4()} value={page.pageNum} onClick={type === 'review' ? handleReviewsPage : (type === 'health-info' ? handleInfoPage : null) }>
+                    <button className={styles.buttonPaging} key={uuid4()} value={page.pageNum} onClick={type === 'review' ? handleReviewsPage : (type === 'health-info' ? handleInfoPage : handleBoardsPage) }>
                         {page.pageView}
                     </button>
                 ))

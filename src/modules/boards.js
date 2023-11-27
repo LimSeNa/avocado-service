@@ -7,7 +7,10 @@ const INITIALIZE = 'boards/INITIALIZE';
 const [READ_BOARD_LIST, READ_BOARD_LIST_SUCCESS, READ_BOARD_LIST_FAILURE] = createRequestActionTypes('boards/READ_BOARD_LIST');
 
 export const initialize = createAction(INITIALIZE);
-export const readBoardList = createAction(READ_BOARD_LIST);
+export const readBoardList = createAction(
+    READ_BOARD_LIST,
+    (pageNum) => (pageNum)
+);
 
 const readBoardListSaga = createRequestSaga(READ_BOARD_LIST, boardAPI.readBoardList);
 export function* boardsSaga() {

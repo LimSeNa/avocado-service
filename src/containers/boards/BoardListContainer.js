@@ -18,7 +18,7 @@ const BoardListContainer = () => {
     };
 
     useEffect(() => {
-        dispatch(readBoardList());
+        dispatch(readBoardList({pageNum: 0}));
     }, [dispatch]);
 
     return (
