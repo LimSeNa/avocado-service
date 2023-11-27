@@ -5,9 +5,21 @@ import {TbBuildingHospital} from "react-icons/tb";
 import styles from "./review-list.module.css";
 import {FcSearch} from "react-icons/fc";
 import {v4 as uuid4} from "uuid";
+import {useDeptContext} from "../../context/DeptContext";
 
 const ReviewItem = ({reviewItem, handleNavigate}) => {
+    const deptTextMap = useDeptContext();
+
     const {id, title, targetHospital, targetDept, writer, starPoint} = reviewItem;
+
+    // 영어로 표시된 진료과를 한글로 반환하는 함수
+    const handleChangeLanguage = (dept) => {
+        const selectedDept = deptTextMap.find(deptItem => dept === deptItem.deptValue);
+        if (selectedDept === undefined) {
+            return '기타';
+        }
+        return selectedDept.deptName;
+    };
 
     // 별점 그리는 함수
     const handleStar = (starPoint) => {
@@ -31,7 +43,7 @@ const ReviewItem = ({reviewItem, handleNavigate}) => {
                     </div>
                     <div className={styles.boxSubInfo}>
                         <PiTargetBold className={styles.iconInfo}/>
-                        <div>진료과 : {targetDept}</div>
+                        <div>진료과 : {handleChangeLanguage(targetDept)}</div>
                     </div>
                     <div className={styles.boxSubInfo}>
                         <PiPencilSimpleLine className={styles.iconInfo}/>

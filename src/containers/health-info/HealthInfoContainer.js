@@ -11,7 +11,7 @@ const HealthInfoContainer = () => {
         loading: loading['healthInfo/READ_INFO_LIST'],
     }));
 
-    // 처음 렌더링 때에만 실행 : deps에 빈 배열
+    // 맨 처음만 실행 : 두 번째 파라미터 빈 배열 []
     useEffect(() => {
         dispatch(readInfoList({deptNum: null, pageNum: 0}));
     }, []);

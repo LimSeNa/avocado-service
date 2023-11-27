@@ -1,9 +1,21 @@
 import styles from "./board-list.module.css";
 import {PiPencilSimpleLine} from "react-icons/pi";
 import {SlCalender} from "react-icons/sl";
+import {useDeptContext} from "../../context/DeptContext";
 
 const BoardItem = ({boardItem, handleNavigate}) => {
+    const deptTextMap = useDeptContext();
+
     const {id, title, body, dept, writer, createAt} = boardItem;
+
+    // 영어로 표시된 진료과를 한글로 반환하는 함수
+    const handleChangeLanguage = (dept) => {
+        const selectedDept = deptTextMap.find(deptItem => dept === deptItem.deptValue);
+        if (selectedDept === undefined) {
+            return '기타';
+        }
+        return selectedDept.deptName;
+    };
 
     return (
         <div className={styles.boxBoardItem} onClick={() => handleNavigate(id)}>
@@ -21,7 +33,7 @@ const BoardItem = ({boardItem, handleNavigate}) => {
                     </div>
                 </div>
                 <div className={styles.tagDept}>
-                    {dept}
+                    {handleChangeLanguage(dept)}
                 </div>
             </div>
         </div>
