@@ -31,7 +31,7 @@ export function* reviewsSaga() {
 
 const initialState = {
     targetHospital: '',
-    deptNum: 0,
+    deptNum: null,
     reviews: null,
     reviewsError: null,
 };
