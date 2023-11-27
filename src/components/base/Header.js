@@ -1,11 +1,19 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {BiSolidLocationPlus} from "react-icons/bi";
 import styles from "./header.module.css";
 import {FaUser, FaUserMd} from "react-icons/fa";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import UserModal from "./UserModal";
+import {useSelector} from "react-redux";
 
 const Header = () => {
+    const pathname = useLocation();
+    const navigate = useNavigate();
+    const {auth, authError, loading} = useSelector(({auth, loading}) => ({
+        auth: auth.auth,
+        authError: auth.authError,
+        loading: loading['auth/LOGOUT'],
+    }));
     const member = JSON.parse(localStorage.getItem('member'));
     const staff = JSON.parse(localStorage.getItem('staff'));
     const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +21,17 @@ const Header = () => {
     const handleModal = () => {
         setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+        if (!loading && auth) {
+            navigate(pathname);
+            window.location.reload();
+        }
+
+        if (!loading && authError) {
+            alert('로그아웃 실패!');
+        }
+    }, [loading]);
 
     return (
         <div className={styles.header}>

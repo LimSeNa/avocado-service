@@ -7,8 +7,11 @@ import {useNavigate} from "react-router-dom";
 const MemberLoginForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {form} = useSelector(({auth, loading}) => ({
+    const {form, memberAuth, memberAuthError, loading} = useSelector(({auth, loading}) => ({
         form: auth.login,
+        memberAuth: auth.memberAuth,
+        memberAuthError: auth.memberAuthError,
+        loading: loading['auth/MEMBER_LOGIN'],
     }));
 
     // 컴포넌트가 처음 렌더링될 때 form 초기화
@@ -30,8 +33,18 @@ const MemberLoginForm = () => {
     const onSubmit = () => {
         const {email, password} = form;
         dispatch(memberLogin({email, password}));
-        navigate('/');
     };
+
+    useEffect(() => {
+        if (!loading && memberAuth) {
+            navigate('/');
+            window.location.reload();
+        }
+
+        if (!loading && memberAuthError) {
+            alert('로그인 실패!');
+        }
+    }, [loading]);
 
     return (
         <LoginForm type="memberLogin"
