@@ -6,7 +6,7 @@ export const readBoardList = ({pageNum}) => {
     return client.get(`/api/boards`, {
         params: {
             page: pageNum,
-            size: 5,
+            size: 4,
         }
     });
 };
