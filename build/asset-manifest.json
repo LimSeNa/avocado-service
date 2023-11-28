@@ -1,13 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.e3cc340b.css",
-    "main.js": "/static/js/main.50a1617b.js",
+    "main.css": "/static/css/main.d124cfae.css",
+    "main.js": "/static/js/main.827c8bf3.js",
+    "static/media/main-section-three.png": "/static/media/main-section-three.26269e63f100fe207445.png",
+    "static/media/main-section-one.png": "/static/media/main-section-one.448438143dacad19bf68.png",
+    "static/media/main-section-two.png": "/static/media/main-section-two.861519f8f6779e108bee.png",
+    "static/media/board-icon.png": "/static/media/board-icon.657e2f2fee729251fb8f.png",
+    "static/media/main-section-four.png": "/static/media/main-section-four.d48cb70f8ae059978663.png",
+    "static/media/symptom-icon.png": "/static/media/symptom-icon.20a4bd8d38c2fc879cc9.png",
+    "static/media/main-section-one-sub.png": "/static/media/main-section-one-sub.8c56407105d81d7d23cf.png",
+    "static/media/health-info-icon.png": "/static/media/health-info-icon.0b66aeadb708091dba22.png",
+    "static/media/review-icon.png": "/static/media/review-icon.05babe98cb56f8918569.png",
     "index.html": "/index.html",
-    "main.e3cc340b.css.map": "/static/css/main.e3cc340b.css.map",
-    "main.50a1617b.js.map": "/static/js/main.50a1617b.js.map"
+    "main.d124cfae.css.map": "/static/css/main.d124cfae.css.map",
+    "main.827c8bf3.js.map": "/static/js/main.827c8bf3.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3cc340b.css",
-    "static/js/main.50a1617b.js"
+    "static/css/main.d124cfae.css",
+    "static/js/main.827c8bf3.js"
   ]
 }
