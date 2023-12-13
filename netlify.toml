@@ -1,5 +1,5 @@
 [[redirects]]
 from = "/api/*"
-  to = "https://process.env.HTTP_SERVER/api/:splat"
+  to = "process.env.HTTP_SERVER/:splat"
   status = 200
   force = true
