@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const SERVER = process.env.HTTP_SERVER
+
 const client = axios.create({
-    baseURL: process.env.HTTP_SERVER
+    baseURL: SERVER
 }); // axios 객체 생성
 // client.defaults.url = process.env.MAIN_SERVER
 
