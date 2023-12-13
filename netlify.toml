@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/api/*"
-  to = "process.env.HTTP_SERVER/:splat"
-  status = 200
-  force = true
