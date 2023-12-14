@@ -1,10 +1,16 @@
-export default async (request, context) => {
+exports.handler = async (event, context) => {
     try {
         const response = await fetch(process.env.HTTP_SERVER);
         const data = await response.json();
-        return Response.json({data});
+        return {
+            statusCode: 200,
+            body: JSON.stringify({data})
+        };
     } catch (error) {
         console.log(error);
-        return Response.json({error: 'Failed fetching data.'});
+        return {
+            statusCode: 500,
+            body: JSON.stringify({error: 'Failed fetching data.'})
+        };
     }
-};
+}
