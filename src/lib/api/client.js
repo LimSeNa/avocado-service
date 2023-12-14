@@ -1,10 +1,6 @@
 import axios from "axios";
 
-const SERVER = process.env.HTTP_SERVER
-
-const client = axios.create({
-    baseURL: SERVER
-}); // axios 객체 생성
+const client = axios.create(); // axios 객체 생성
 // client.defaults.url = process.env.MAIN_SERVER
 
 client.interceptors.request.use(
