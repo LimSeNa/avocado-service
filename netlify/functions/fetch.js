@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 exports.handler = async function(event, context) {
     const {path} = event;
     const HTTP_SERVER = process.env.HTTP_SERVER;
+    console.log(HTTP_SERVER);
 
     try {
         const response = await fetch(`${HTTP_SERVER}${path}`, {
